@@ -61,7 +61,7 @@ public class NodePastatas : MonoBehaviour
             }
         }
 
-        // 2️⃣ Kol BRAUKI – rodom laikiną liniją iki pelės
+        // Kol BRAUKI – rodom laikiną liniją iki pelės
         if (selectedNode == this && Input.GetMouseButton(0))
         {
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
