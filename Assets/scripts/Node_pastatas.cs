@@ -177,7 +177,7 @@ public class NodePastatas : MonoBehaviour
 
         if (movingStudents <= 0)
         {
-            dragLine.positionCount = 0; // kai visi atėjo – linija dingsta
+            dragLine.positionCount = 0; // kai visi atėjo – linija dingsta 
         }
     }
 }
