@@ -5,7 +5,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject winPanel; // UI panel (vėliau)
 
+    public AudioClip winSound;
+    private AudioSource audioSource;
+
     private bool gameEnded = false;
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -38,6 +45,9 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
 
         Debug.Log("WIN!");
+
+        if (audioSource != null && winSound != null)
+            audioSource.PlayOneShot(winSound);
 
         Time.timeScale = 0f; // sustabdo žaidimą
 

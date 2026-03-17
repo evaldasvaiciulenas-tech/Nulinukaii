@@ -14,6 +14,12 @@ public class NodePastatas : MonoBehaviour
     public int movingStudents = 0;
     private NodePastatas currentTarget;
     public float sendInterval = 0.1f; // kas kiek sekundžių siunčiam 1 studentą
+
+    public AudioClip sendStudentSound;   // garso efektas siunčiant studentą
+    public AudioClip receiveStudentSound; // garso efektas pasiekus pastatą
+    private AudioSource audioSource;
+    public AudioClip captureSound; // garso efektas užimant fakultetą
+
     private float sendTimer = 0f;
     private int studentsToSend = 0;
     private NodePastatas sendTarget;
@@ -35,6 +41,8 @@ public class NodePastatas : MonoBehaviour
         UpdateText();
         dragLine.positionCount = 0;
         UpdateColor();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -103,6 +111,9 @@ public class NodePastatas : MonoBehaviour
                 GameObject s = Instantiate(studentPrefab, transform.position + offset, Quaternion.identity);
                 s.GetComponent<Student>().SetTarget(sendTarget, this);
 
+                if (audioSource != null && sendStudentSound != null)
+                    audioSource.PlayOneShot(sendStudentSound);
+
                 studentsToSend--;
             }
         }
@@ -142,20 +153,26 @@ public class NodePastatas : MonoBehaviour
         currentTarget = target;
         movingStudents = sendAmount;
 
-        // fiksuota linija A -> B
         dragLine.positionCount = 2;
         dragLine.SetPosition(0, transform.position);
         dragLine.SetPosition(1, target.transform.position);
+
+        if (audioSource != null && sendStudentSound != null)
+            audioSource.PlayOneShot(sendStudentSound);
     }
 
     public void ReceiveStudent(NodePastatas source)
     {
         if (owner == OwnerType.Neutral)
         {
-            owner = source.owner;   // perima savininką
-            studentCount = 1;       // pirmas atėjęs studentas
+            owner = source.owner;
+            studentCount = 1;
             UpdateColor();
             UpdateText();
+
+            if (audioSource != null && captureSound != null)
+                audioSource.PlayOneShot(captureSound);
+
             return;
         }
 
