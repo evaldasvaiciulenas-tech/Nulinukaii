@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class NodePastatas : MonoBehaviour
 {
-    public enum OwnerType { Neutral, Player }
+    public enum OwnerType { Neutral, Player, AI }
     public OwnerType owner = OwnerType.Neutral;
 
     public Color neutralColor;
     public Color playerColor;
+    public Color aiColor;
+
     public int studentCount = 10;
     public int maxStudents = 100;
     public float generateInterval = 1f;
@@ -47,8 +49,9 @@ public class NodePastatas : MonoBehaviour
 
     void Update()
     {
-        // 1️⃣ Studentų generavimas
-        if (owner == OwnerType.Player && studentCount < maxStudents)
+
+        //  Studentų generavimas
+        if ((owner == OwnerType.Player || owner == OwnerType.AI) && studentCount < maxStudents)
         {
             float dynamicInterval = generateInterval;
 
@@ -129,6 +132,8 @@ public class NodePastatas : MonoBehaviour
             sr.color = neutralColor;
         else if (owner == OwnerType.Player)
             sr.color = playerColor;
+        else 
+            sr.color = aiColor;
     }
 
     void OnMouseDown()
@@ -136,7 +141,7 @@ public class NodePastatas : MonoBehaviour
         selectedNode = this;
     }
 
-    void SendStudents(NodePastatas target)
+    public void SendStudents(NodePastatas target)
     {
         if (studentPrefab == null) return;
 
@@ -163,22 +168,31 @@ public class NodePastatas : MonoBehaviour
 
     public void ReceiveStudent(NodePastatas source)
     {
-        if (owner == OwnerType.Neutral)
+        if (owner == source.owner)
+        {
+            if (studentCount < maxStudents)
+            {
+                studentCount++;
+                UpdateText();
+            }
+            return;
+        }
+
+        studentCount--;
+
+        if (studentCount <= 0)
         {
             owner = source.owner;
             studentCount = 1;
+
             UpdateColor();
             UpdateText();
 
             if (audioSource != null && captureSound != null)
                 audioSource.PlayOneShot(captureSound);
-
-            return;
         }
-
-        if (studentCount < maxStudents)
+        else
         {
-            studentCount++;
             UpdateText();
         }
     }

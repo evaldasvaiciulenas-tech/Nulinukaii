@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject winPanel; // UI panel (vėliau)
+    public GameObject losePanel;
 
     public AudioClip winSound;
+    public AudioClip loseSound;
     private AudioSource audioSource;
 
     private bool gameEnded = false;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
         if (gameEnded) return;
 
         CheckWinCondition();
+        CheckLoseCondition(); 
     }
 
     public void ResetLevel()
@@ -39,6 +42,18 @@ public class GameManager : MonoBehaviour
 
         WinGame();
     }
+    void CheckLoseCondition()
+    {
+        NodePastatas[] nodes = FindObjectsOfType<NodePastatas>();
+
+        foreach (NodePastatas node in nodes)
+        {
+            if (node.owner == NodePastatas.OwnerType.Player)
+                return; // dar turi bent vieną → nepralaimėjai
+        }
+
+        LoseGame();
+    }
 
     void WinGame()
     {
@@ -49,9 +64,23 @@ public class GameManager : MonoBehaviour
         if (audioSource != null && winSound != null)
             audioSource.PlayOneShot(winSound);
 
-        Time.timeScale = 0f; // sustabdo žaidimą
-
         if (winPanel != null)
             winPanel.SetActive(true);
+
+        Time.timeScale = 0f; // sustabdo žaidimą
+    }
+    void LoseGame()
+    {
+        gameEnded = true;
+
+        Debug.Log("LOSE!");
+
+        if (audioSource != null && loseSound != null)
+            audioSource.PlayOneShot(loseSound);
+
+        if (losePanel != null)
+            losePanel.SetActive(true);
+
+        Time.timeScale = 0f; // sustabdo žaidimą
     }
 }
