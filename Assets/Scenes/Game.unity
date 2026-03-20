@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 166456091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,15 +162,15 @@ TextMesh:
   m_GameObject: {fileID: 166456091}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -199,7 +199,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 347635687}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -266,15 +266,15 @@ TextMesh:
   m_GameObject: {fileID: 347635687}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -303,7 +303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -493,9 +493,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 0
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -592,8 +592,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -612,7 +612,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.01, y: -2.97, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1334322174}
@@ -793,9 +793,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 1
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -892,8 +892,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
+  m_Sprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -912,7 +912,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.009999946, y: -3.9937153, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1844269775}
@@ -1222,7 +1222,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.93348074
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1331,9 +1331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 2
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -1430,8 +1430,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.020420859, b: 0, a: 1}
+  m_Sprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1450,7 +1450,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.010000229, y: 4.0299997, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1824077531}
@@ -1664,7 +1664,7 @@ Transform:
   m_GameObject: {fileID: 662897599}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1680,15 +1680,15 @@ TextMesh:
   m_GameObject: {fileID: 662897599}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1717,7 +1717,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1878,9 +1878,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 0
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -1977,8 +1977,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1997,7 +1997,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.9303098, y: 0.00015503168, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 166456092}
@@ -2270,9 +2270,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 0
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -2369,8 +2369,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2389,7 +2389,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.99, y: 3.03, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 347635688}
@@ -2793,7 +2793,7 @@ Transform:
   m_GameObject: {fileID: 1334322173}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2809,15 +2809,15 @@ TextMesh:
   m_GameObject: {fileID: 1334322173}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -2846,7 +2846,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3106,7 +3106,7 @@ Transform:
   m_GameObject: {fileID: 1591315877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3122,15 +3122,15 @@ TextMesh:
   m_GameObject: {fileID: 1591315877}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -3159,7 +3159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3500,9 +3500,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 0
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -3599,8 +3599,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3619,7 +3619,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.99, y: -2.97, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2072058151}
@@ -3749,7 +3749,7 @@ Transform:
   m_GameObject: {fileID: 1824077530}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3765,15 +3765,15 @@ TextMesh:
   m_GameObject: {fileID: 1824077530}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -3802,7 +3802,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3853,7 +3853,7 @@ Transform:
   m_GameObject: {fileID: 1844269774}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3869,15 +3869,15 @@ TextMesh:
   m_GameObject: {fileID: 1844269774}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -3906,7 +3906,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4039,9 +4039,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 0
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -4138,8 +4138,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4158,7 +4158,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.01, y: 3.03, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 662897600}
@@ -4506,9 +4506,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePastatas
   owner: 0
-  neutralColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  playerColor: {r: 0.1803922, g: 0.5450981, b: 0.3411765, a: 1}
-  aiColor: {r: 0.9960785, g: 0.015686275, b: 0, a: 1}
+  neutralSprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  playerSprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
+  aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
   generateInterval: 1
@@ -4605,8 +4605,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4625,7 +4625,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.0100002, y: 0.029999971, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1591315878}
@@ -4755,7 +4755,7 @@ Transform:
   m_GameObject: {fileID: 2072058150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4771,15 +4771,15 @@ TextMesh:
   m_GameObject: {fileID: 2072058150}
   m_Text: 0
   m_OffsetZ: 0
-  m_CharacterSize: 0.2
+  m_CharacterSize: 0.12
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
-  m_TabSize: 4
+  m_TabSize: 3
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -4808,7 +4808,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

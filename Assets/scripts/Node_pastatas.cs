@@ -5,9 +5,9 @@ public class NodePastatas : MonoBehaviour
     public enum OwnerType { Neutral, Player, AI }
     public OwnerType owner = OwnerType.Neutral;
 
-    public Color neutralColor;
-    public Color playerColor;
-    public Color aiColor;
+    public Sprite neutralSprite;
+    public Sprite playerSprite;
+    public Sprite aiSprite;
 
     public int studentCount = 10;
     public int maxStudents = 100;
@@ -15,19 +15,17 @@ public class NodePastatas : MonoBehaviour
     public int generateAmount = 1;
     public int movingStudents = 0;
     private NodePastatas currentTarget;
-    public float sendInterval = 0.1f; // kas kiek sekundžių siunčiam 1 studentą
+    public float sendInterval = 0.1f;
 
-    public AudioClip sendStudentSound;   // garso efektas siunčiant studentą
-    public AudioClip receiveStudentSound; // garso efektas pasiekus pastatą
+    public AudioClip sendStudentSound;
+    public AudioClip receiveStudentSound;
     private AudioSource audioSource;
-    public AudioClip captureSound; // garso efektas užimant fakultetą
+    public AudioClip captureSound;
 
     private float sendTimer = 0f;
     private int studentsToSend = 0;
     private NodePastatas sendTarget;
     private bool isSending = false;
-
-
 
     public GameObject studentPrefab;
     public LineRenderer dragLine;
@@ -42,15 +40,12 @@ public class NodePastatas : MonoBehaviour
         countText = GetComponentInChildren<TextMesh>();
         UpdateText();
         dragLine.positionCount = 0;
-        UpdateColor();
-
+        UpdateSprite(); 
         audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-
-        //  Studentų generavimas
         if ((owner == OwnerType.Player || owner == OwnerType.AI) && studentCount < maxStudents)
         {
             float dynamicInterval = generateInterval;
@@ -66,24 +61,20 @@ public class NodePastatas : MonoBehaviour
             {
                 studentCount += generateAmount;
                 if (studentCount > maxStudents) studentCount = maxStudents;
-
                 timer = 0f;
                 UpdateText();
             }
         }
 
-        // Kol BRAUKI – rodom laikiną liniją iki pelės
         if (selectedNode == this && Input.GetMouseButton(0))
         {
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorld.z = 0f;
-
             dragLine.positionCount = 2;
             dragLine.SetPosition(0, transform.position);
             dragLine.SetPosition(1, mouseWorld);
         }
 
-        // 3️⃣ Kai ATLEIDI – fiksuojam tikslą ir siunčiam studentus
         if (selectedNode == this && Input.GetMouseButtonUp(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(
@@ -95,13 +86,12 @@ public class NodePastatas : MonoBehaviour
             {
                 NodePastatas target = hit.collider.GetComponent<NodePastatas>();
                 if (target != null && target != this)
-                {
                     SendStudents(target);
-                }
             }
 
             selectedNode = null;
         }
+
         if (isSending && studentsToSend > 0)
         {
             sendTimer += Time.deltaTime;
@@ -109,7 +99,6 @@ public class NodePastatas : MonoBehaviour
             if (sendTimer >= sendInterval)
             {
                 sendTimer = 0f;
-
                 Vector3 offset = Random.insideUnitCircle * 0.2f;
                 GameObject s = Instantiate(studentPrefab, transform.position + offset, Quaternion.identity);
                 s.GetComponent<Student>().SetTarget(sendTarget, this);
@@ -122,18 +111,17 @@ public class NodePastatas : MonoBehaviour
         }
     }
 
-    void UpdateColor()
+    void UpdateSprite()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-
         if (sr == null) return;
 
-        if (owner == OwnerType.Neutral)
-            sr.color = neutralColor;
-        else if (owner == OwnerType.Player)
-            sr.color = playerColor;
-        else 
-            sr.color = aiColor;
+        if (owner == OwnerType.Neutral && neutralSprite != null)
+            sr.sprite = neutralSprite;
+        else if (owner == OwnerType.Player && playerSprite != null)
+            sr.sprite = playerSprite;
+        else if (owner == OwnerType.AI && aiSprite != null)
+            sr.sprite = aiSprite;
     }
 
     void OnMouseDown()
@@ -154,7 +142,6 @@ public class NodePastatas : MonoBehaviour
         sendTarget = target;
         studentsToSend = sendAmount;
         isSending = true;
-
         currentTarget = target;
         movingStudents = sendAmount;
 
@@ -184,8 +171,7 @@ public class NodePastatas : MonoBehaviour
         {
             owner = source.owner;
             studentCount = 1;
-
-            UpdateColor();
+            UpdateSprite(); 
             UpdateText();
 
             if (audioSource != null && captureSound != null)
@@ -202,13 +188,11 @@ public class NodePastatas : MonoBehaviour
         if (countText != null)
             countText.text = studentCount.ToString();
     }
+
     public void StudentArrived()
     {
         movingStudents--;
-
         if (movingStudents <= 0)
-        {
-            dragLine.positionCount = 0; // kai visi atėjo – linija dingsta 
-        }
+            dragLine.positionCount = 0;
     }
 }

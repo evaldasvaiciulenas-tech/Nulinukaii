@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -171,3 +171,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Student
   speed: 3
+  playerSprite: {fileID: 7565872798845082577, guid: 96cd7bfce39938e479453a58d72de41d, type: 3}
+  aiSprite: {fileID: 8963781326341833235, guid: d8e1e28d20fea2f48bbaa6b7a4bcb0fe, type: 3}

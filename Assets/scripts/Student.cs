@@ -4,6 +4,9 @@ public class Student : MonoBehaviour
 {
     public float speed = 3f;
 
+    public Sprite playerSprite;
+    public Sprite aiSprite;
+
     private NodePastatas target;
     private NodePastatas source;
     private SpriteRenderer sr;
@@ -12,6 +15,7 @@ public class Student : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
     }
+
     public void SetTarget(NodePastatas t, NodePastatas s)
     {
         target = t;
@@ -20,10 +24,11 @@ public class Student : MonoBehaviour
         if (sr == null)
             sr = GetComponent<SpriteRenderer>();
 
-        if (source.owner == NodePastatas.OwnerType.Player)
-            sr.color = source.playerColor;
-        else if (source.owner == NodePastatas.OwnerType.AI)
-            sr.color = source.aiColor;
+
+        if (source.owner == NodePastatas.OwnerType.Player && playerSprite != null)
+            sr.sprite = playerSprite;
+        else if (source.owner == NodePastatas.OwnerType.AI && aiSprite != null)
+            sr.sprite = aiSprite;
     }
 
     void Update()
