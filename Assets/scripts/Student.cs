@@ -24,11 +24,15 @@ public class Student : MonoBehaviour
         if (sr == null)
             sr = GetComponent<SpriteRenderer>();
 
-
         if (source.owner == NodePastatas.OwnerType.Player && playerSprite != null)
             sr.sprite = playerSprite;
         else if (source.owner == NodePastatas.OwnerType.AI && aiSprite != null)
             sr.sprite = aiSprite;
+
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        float travelTime = distance / 2f; 
+
+        speed = distance / travelTime;
     }
 
     void Update()

@@ -498,15 +498,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &435007722
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -798,15 +801,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 0}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &517353501
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1336,15 +1342,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &615448698
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1974,15 +1983,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &910858392
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2366,15 +2378,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &1018433602
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3447,7 +3462,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 658d22be49df01a44ac17662c33f09f8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.35
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3596,15 +3611,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &1764164868
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4135,15 +4153,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &1880300831
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4602,15 +4623,18 @@ MonoBehaviour:
   aiSprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   studentCount: 0
   maxStudents: 100
-  generateInterval: 1
-  generateAmount: 3
+  generateInterval: 0.75
+  generateAmount: 1
   movingStudents: 0
   sendInterval: 0.1
+  minStudentsToSend: 5
+  connectionCooldown: 1
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
   studentPrefab: {fileID: 5992705570780493529, guid: 1af926700b5e03e45956b6fc75dfaa09, type: 3}
   dragLine: {fileID: 1669942919}
+  maxActiveLines: 3
 --- !u!58 &2071161849
 CircleCollider2D:
   m_ObjectHideFlags: 0

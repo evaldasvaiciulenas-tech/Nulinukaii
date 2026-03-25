@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class NodePastatas : MonoBehaviour
 {
@@ -15,7 +16,13 @@ public class NodePastatas : MonoBehaviour
     public int generateAmount = 1;
     public int movingStudents = 0;
     private NodePastatas currentTarget;
+    private OwnerType sendingOwner;
     public float sendInterval = 0.1f;
+    public int minStudentsToSend = 5;
+
+
+    private Dictionary<NodePastatas, float> targetCooldowns = new Dictionary<NodePastatas, float>();
+    public float connectionCooldown = 1f;
 
     public AudioClip sendStudentSound;
     public AudioClip receiveStudentSound;
@@ -29,6 +36,9 @@ public class NodePastatas : MonoBehaviour
 
     public GameObject studentPrefab;
     public LineRenderer dragLine;
+    public static int playerActiveLines = 0;
+    public static int aiActiveLines = 0;
+    public int maxActiveLines = 3;
 
     private float timer;
     private TextMesh countText;
@@ -51,7 +61,7 @@ public class NodePastatas : MonoBehaviour
             float dynamicInterval = generateInterval;
 
             if (studentCount > 50)
-                dynamicInterval = 0.3f;
+                dynamicInterval = 0.45f;
             else if (studentCount > 20)
                 dynamicInterval = 0.5f;
 
@@ -66,7 +76,7 @@ public class NodePastatas : MonoBehaviour
             }
         }
 
-        if (selectedNode == this && Input.GetMouseButton(0))
+        if (selectedNode == this && owner == OwnerType.Player && Input.GetMouseButton(0))
         {
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorld.z = 0f;
@@ -75,7 +85,7 @@ public class NodePastatas : MonoBehaviour
             dragLine.SetPosition(1, mouseWorld);
         }
 
-        if (selectedNode == this && Input.GetMouseButtonUp(0))
+        if (selectedNode == this && owner == OwnerType.Player && Input.GetMouseButtonUp(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(
                 Camera.main.ScreenToWorldPoint(Input.mousePosition),
@@ -126,17 +136,42 @@ public class NodePastatas : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (owner != OwnerType.Player)
+            return;
+
         selectedNode = this;
     }
 
     public void SendStudents(NodePastatas target)
     {
+        sendingOwner = owner;
+
+        if (owner == OwnerType.Player && playerActiveLines >= maxActiveLines)
+            return;
+
+        if (owner == OwnerType.AI && aiActiveLines >= maxActiveLines)
+            return;
+
+        if (targetCooldowns.ContainsKey(target))
+        {
+            if (Time.time < targetCooldowns[target] + connectionCooldown)
+                return;
+        }
+
+        if (studentCount < minStudentsToSend)
+            return;
+
         if (studentPrefab == null) return;
 
-        int sendAmount = studentCount / 2;
+        int sendAmount = Mathf.Clamp(studentCount / 3, 1, 20);
         if (sendAmount <= 0) return;
 
         studentCount -= sendAmount;
+        targetCooldowns[target] = Time.time;
+        if (owner == OwnerType.Player)
+            playerActiveLines++;
+        else if (owner == OwnerType.AI)
+            aiActiveLines++;
         UpdateText();
 
         sendTarget = target;
@@ -192,7 +227,15 @@ public class NodePastatas : MonoBehaviour
     public void StudentArrived()
     {
         movingStudents--;
+
         if (movingStudents <= 0)
+        {
             dragLine.positionCount = 0;
+
+            if (sendingOwner == OwnerType.Player)
+                playerActiveLines--;
+            else if (sendingOwner == OwnerType.AI)
+                aiActiveLines--;
+        }
     }
 }

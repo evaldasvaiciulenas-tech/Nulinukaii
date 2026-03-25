@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
     public AudioClip winSound;
     public AudioClip loseSound;
     private AudioSource audioSource;
+    private MusicManager musicManager;
 
     private bool gameEnded = false;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        musicManager = FindObjectOfType<MusicManager>();
     }
 
     void Update()
@@ -64,10 +66,13 @@ public class GameManager : MonoBehaviour
         if (audioSource != null && winSound != null)
             audioSource.PlayOneShot(winSound);
 
+        if (musicManager != null)
+            musicManager.StopMusic();
+
         if (winPanel != null)
             winPanel.SetActive(true);
 
-        Time.timeScale = 0f; // sustabdo žaidimą
+        Time.timeScale = 0f;
     }
     void LoseGame()
     {
@@ -78,9 +83,12 @@ public class GameManager : MonoBehaviour
         if (audioSource != null && loseSound != null)
             audioSource.PlayOneShot(loseSound);
 
+        if (musicManager != null)
+            musicManager.StopMusic();
+
         if (losePanel != null)
             losePanel.SetActive(true);
 
-        Time.timeScale = 0f; // sustabdo žaidimą
+        Time.timeScale = 0f;
     }
 }
