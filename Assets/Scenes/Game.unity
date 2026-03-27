@@ -503,7 +503,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
@@ -545,7 +545,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &435007723
 SpriteRenderer:
   serializedVersion: 2
@@ -747,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a54a4ddebd429a4e902252b22bc99b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIBot
+  aggression: 0.7
   actionInterval: 1.5
 --- !u!4 &440921831
 Transform:
@@ -806,7 +807,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 0}
@@ -848,7 +849,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &517353502
 SpriteRenderer:
   serializedVersion: 2
@@ -1347,7 +1348,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
@@ -1389,7 +1390,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &615448699
 SpriteRenderer:
   serializedVersion: 2
@@ -1988,7 +1989,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
@@ -2030,7 +2031,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &910858393
 SpriteRenderer:
   serializedVersion: 2
@@ -2383,7 +2384,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
@@ -2425,7 +2426,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &1018433603
 SpriteRenderer:
   serializedVersion: 2
@@ -3616,7 +3617,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
@@ -3658,7 +3659,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &1764164869
 SpriteRenderer:
   serializedVersion: 2
@@ -4158,7 +4159,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
@@ -4200,7 +4201,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &1880300832
 SpriteRenderer:
   serializedVersion: 2
@@ -4628,7 +4629,7 @@ MonoBehaviour:
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
-  connectionCooldown: 1
+  connectionCooldown: 0.8
   sendStudentSound: {fileID: 8300000, guid: f8d182f972508614eafd70e0bd772935, type: 3}
   receiveStudentSound: {fileID: 0}
   captureSound: {fileID: 8300000, guid: 3026ac97993c4d545ad98a71efffa6a6, type: 3}
@@ -4670,7 +4671,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!212 &2071161850
 SpriteRenderer:
   serializedVersion: 2

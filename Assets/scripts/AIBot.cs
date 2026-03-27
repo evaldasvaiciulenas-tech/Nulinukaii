@@ -1,9 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AIBot : MonoBehaviour
 {
+  
+    public float aggression = 0.7f; // Agresyvumas(0 - nuolat ginasi,
+                                    // 1 - nuolat puola
+
     public float actionInterval = 2f;
     private float timer;
+
 
     void Update()
     {
@@ -20,37 +26,84 @@ public class AIBot : MonoBehaviour
     {
         NodePastatas[] nodes = FindObjectsOfType<NodePastatas>();
 
-        // surandam AI fakultetus
-        System.Collections.Generic.List<NodePastatas> aiNodes = new System.Collections.Generic.List<NodePastatas>();
+        List<NodePastatas> aiNodes = new List<NodePastatas>();
+        List<NodePastatas> playerNodes = new List<NodePastatas>();
+        List<NodePastatas> neutralNodes = new List<NodePastatas>();
 
         foreach (var node in nodes)
         {
-            if (node.owner == NodePastatas.OwnerType.AI && node.studentCount > 10)
-            {
+            if (node.owner == NodePastatas.OwnerType.AI)
                 aiNodes.Add(node);
-            }
+            else if (node.owner == NodePastatas.OwnerType.Player)
+                playerNodes.Add(node);
+            else
+                neutralNodes.Add(node);
         }
 
         if (aiNodes.Count == 0) return;
 
-        // random AI node
-        NodePastatas from = aiNodes[Random.Range(0, aiNodes.Count)];
+        // Sprendimas gintis ar atakuoti
+        NodePastatas threatened = GetWeakestNode(aiNodes);
+        bool shouldDefend = threatened != null && threatened.studentCount < 15;
 
-        // random target (ne AI)
-        System.Collections.Generic.List<NodePastatas> targets = new System.Collections.Generic.List<NodePastatas>();
-
-        foreach (var node in nodes)
+        // Truputis RNG + Gynyba
+        if (shouldDefend && Random.value > aggression)
         {
-            if (node != from && node.owner != NodePastatas.OwnerType.AI)
+            NodePastatas helper = GetStrongestNode(aiNodes, threatened);
+            if (helper != null)
             {
-                targets.Add(node);
+                helper.SendStudents(threatened);
+                return;
             }
         }
 
-        if (targets.Count == 0) return;
+        // Ataka
+        NodePastatas from = GetStrongestNode(aiNodes);
 
-        NodePastatas target = targets[Random.Range(0, targets.Count)];
+        if (from == null || from.studentCount < 10) return;
 
-        from.SendStudents(target);
+        NodePastatas target = null;
+
+        if (neutralNodes.Count > 0)
+            target = GetWeakestNode(neutralNodes);
+        else if (playerNodes.Count > 0)
+            target = GetWeakestNode(playerNodes);
+
+        if (target != null)
+            from.SendStudents(target);
+    }
+    NodePastatas GetWeakestNode(List<NodePastatas> list)
+    {
+        NodePastatas weakest = null;
+        int min = int.MaxValue;
+
+        foreach (var node in list)
+        {
+            if (node.studentCount < min)
+            {
+                min = node.studentCount;
+                weakest = node;
+            }
+        }
+
+        return weakest;
+    }
+    NodePastatas GetStrongestNode(List<NodePastatas> list, NodePastatas exclude = null)
+    {
+        NodePastatas strongest = null;
+        int max = -1;
+
+        foreach (var node in list)
+        {
+            if (node == exclude) continue;
+
+            if (node.studentCount > max)
+            {
+                max = node.studentCount;
+                strongest = node;
+            }
+        }
+
+        return strongest;
     }
 }
