@@ -64,8 +64,10 @@ public class AIBot : MonoBehaviour
 
         NodePastatas target = null;
 
-        if (neutralNodes.Count > 0)
+        if (neutralNodes.Count > 0 && Random.value > 0.2f)
             target = GetWeakestNode(neutralNodes);
+        else if (neutralNodes.Count > 0)
+            target = neutralNodes[Random.Range(0, neutralNodes.Count)];
         else if (playerNodes.Count > 0)
             target = GetWeakestNode(playerNodes);
 
@@ -74,7 +76,8 @@ public class AIBot : MonoBehaviour
     }
     NodePastatas GetWeakestNode(List<NodePastatas> list)
     {
-        NodePastatas weakest = null;
+        List<NodePastatas> weakestList = new List<NodePastatas>();
+
         int min = int.MaxValue;
 
         foreach (var node in list)
@@ -82,12 +85,21 @@ public class AIBot : MonoBehaviour
             if (node.studentCount < min)
             {
                 min = node.studentCount;
-                weakest = node;
+                weakestList.Clear();
+                weakestList.Add(node);
+            }
+            else if (node.studentCount == min)
+            {
+                weakestList.Add(node);
             }
         }
 
-        return weakest;
+        if (weakestList.Count == 0)
+            return null;
+
+        return weakestList[Random.Range(0, weakestList.Count)];
     }
+
     NodePastatas GetStrongestNode(List<NodePastatas> list, NodePastatas exclude = null)
     {
         NodePastatas strongest = null;

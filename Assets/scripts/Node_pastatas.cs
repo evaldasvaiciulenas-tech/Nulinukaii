@@ -33,13 +33,26 @@ public class NodePastatas : MonoBehaviour
 
     private AudioSource audioSource;
 
-    private float sendTimer = 0f;
-    private int studentsToSend = 0;
-    private NodePastatas sendTarget;
-    private bool isSending = false;
+    private class SendOperation
+    {
+        public NodePastatas target;
+        public int studentsLeft;
+        public float timer;
+        public OwnerType senderOwner;  // line field removed
+    }
+    private List<SendOperation> activeSends = new List<SendOperation>();
 
     public GameObject studentPrefab;
+
     public LineRenderer dragLine;
+
+    public Material playerLineMaterial;
+    public Material aiLineMaterial;
+    private Material playerLineInstance;
+    private Material aiLineInstance;
+
+    public float arrowSize = 2.0f;
+    public float dropRadius = 1.2f;
 
     public static int playerActiveLines = 0;
     public static int aiActiveLines = 0;
@@ -54,12 +67,12 @@ public class NodePastatas : MonoBehaviour
     {
         countText = GetComponentInChildren<TextMesh>();
         UpdateText();
-
         dragLine.positionCount = 0;
-
         UpdateSprite();
-
         audioSource = GetComponent<AudioSource>();
+
+        if (playerLineMaterial != null) playerLineInstance = new Material(playerLineMaterial);
+        if (aiLineMaterial != null) aiLineInstance = new Material(aiLineMaterial);
     }
 
     void Update()
@@ -79,64 +92,70 @@ public class NodePastatas : MonoBehaviour
             {
                 studentCount += generateAmount;
                 if (studentCount > maxStudents) studentCount = maxStudents;
-
                 timer = 0f;
                 UpdateText();
             }
         }
 
+        // Drag preview
         if (selectedNode == this && owner == OwnerType.Player && Input.GetMouseButton(0))
         {
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorld.z = 0f;
 
-            if (dragLine.positionCount < 2)
-                dragLine.positionCount = 2;
-
+            dragLine.positionCount = 2;
             dragLine.SetPosition(0, transform.position);
             dragLine.SetPosition(1, mouseWorld);
+            dragLine.material = playerLineInstance;
+
+            float dragLength = Vector3.Distance(transform.position, mouseWorld);
+            dragLine.material.mainTextureScale = new Vector2(dragLength / arrowSize, 1f);
         }
 
         if (selectedNode == this && owner == OwnerType.Player && Input.GetMouseButtonUp(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D hit = Physics2D.OverlapPoint(mousePos);
 
-            bool success = false;
+            Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, dropRadius);
 
-            if (hit != null)
+            NodePastatas target = null;
+            foreach (Collider2D hit in hits)
             {
-                NodePastatas target = hit.GetComponent<NodePastatas>();
-
-                if (target != null && target != this)
+                NodePastatas node = hit.GetComponent<NodePastatas>();
+                if (node != null && node != this)
                 {
-                    success = SendStudents(target);
+                    target = node;
+                    break;
                 }
             }
 
-            if (success)
-            {
-                selectedNode = null;
-            }
+            if (target != null)
+                SendStudents(target);
+
+            dragLine.positionCount = 0;
+            selectedNode = null;
         }
 
-        if (isSending && studentsToSend > 0)
+        for (int i = activeSends.Count - 1; i >= 0; i--)
         {
-            sendTimer += Time.deltaTime;
+            SendOperation op = activeSends[i];
 
-            if (sendTimer >= sendInterval)
+            if (op.studentsLeft <= 0) continue;
+
+            op.timer += Time.deltaTime;
+
+            if (op.timer >= sendInterval)
             {
-                sendTimer = 0f;
+                op.timer = 0f;
 
                 Vector3 offset = Random.insideUnitCircle * 0.2f;
-
                 GameObject s = Instantiate(studentPrefab, transform.position + offset, Quaternion.identity);
-                s.GetComponent<Student>().SetTarget(sendTarget, this);
+                s.GetComponent<Student>().SetTarget(op.target, this);
 
                 if (audioSource != null && sendStudentSound != null)
                     audioSource.PlayOneShot(sendStudentSound);
 
-                studentsToSend--;
+                op.studentsLeft--;
             }
         }
     }
@@ -156,11 +175,10 @@ public class NodePastatas : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (owner != OwnerType.Player)
-            return;
+        if (owner != OwnerType.Player) return;
 
         selectedNode = this;
-
+        dragLine.material = playerLineInstance;
         dragLine.positionCount = 2;
         dragLine.SetPosition(0, transform.position);
         dragLine.SetPosition(1, transform.position);
@@ -203,16 +221,16 @@ public class NodePastatas : MonoBehaviour
         else if (owner == OwnerType.AI)
             aiActiveLines++;
 
-        sendTarget = target;
-        studentsToSend = sendAmount;
-        isSending = true;
-
+        movingStudents += sendAmount;
         currentTarget = target;
-        movingStudents = sendAmount;
 
-        dragLine.positionCount = 2;
-        dragLine.SetPosition(0, transform.position);
-        dragLine.SetPosition(1, target.transform.position);
+        activeSends.Add(new SendOperation
+        {
+            target = target,
+            studentsLeft = sendAmount,
+            timer = 0f,
+            senderOwner = owner   // no line field
+        });
 
         if (audioSource != null && sendStudentSound != null)
             audioSource.PlayOneShot(sendStudentSound);
@@ -238,7 +256,6 @@ public class NodePastatas : MonoBehaviour
         {
             owner = source.owner;
             studentCount = 1;
-
             UpdateSprite();
             UpdateText();
 
@@ -261,15 +278,20 @@ public class NodePastatas : MonoBehaviour
     {
         movingStudents--;
 
-        if (movingStudents <= 0)
+        for (int i = activeSends.Count - 1; i >= 0; i--)
         {
-            dragLine.positionCount = 0;
-            isSending = false;
+            SendOperation op = activeSends[i];
 
-            if (sendingOwner == OwnerType.Player)
-                playerActiveLines--;
-            else if (sendingOwner == OwnerType.AI)
-                aiActiveLines--;
+            if (op.studentsLeft <= 0)
+            {
+                if (op.senderOwner == OwnerType.Player)
+                    playerActiveLines--;
+                else if (op.senderOwner == OwnerType.AI)
+                    aiActiveLines--;
+
+                activeSends.RemoveAt(i);
+                break;
+            }
         }
     }
 }
