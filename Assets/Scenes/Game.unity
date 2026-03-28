@@ -514,6 +514,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &435007723
 SpriteRenderer:
   serializedVersion: 2
@@ -561,7 +563,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -761,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a54a4ddebd429a4e902252b22bc99b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AIBot
-  aggression: 0.8
+  aggression: 0.7
   actionInterval: 1.5
 --- !u!4 &440921831
 Transform:
@@ -817,7 +819,7 @@ MonoBehaviour:
   studentCount: 0
   maxStudents: 100
   generateInterval: 0.5
-  generateAmount: 1
+  generateAmount: 5
   movingStudents: 0
   sendInterval: 0.1
   minStudentsToSend: 5
@@ -832,6 +834,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &517353502
 SpriteRenderer:
   serializedVersion: 2
@@ -879,7 +883,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5834437815652884897, guid: 25c53d0674b4c7b49816c8cc03df6968, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1387,6 +1391,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &615448699
 SpriteRenderer:
   serializedVersion: 2
@@ -1434,7 +1440,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6447085162324018599, guid: 648050dc468e5104fada93f4662724cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1857,7 +1863,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8756509301693649849, guid: 0c81b9e99c48af243a88b0d8936802b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2042,6 +2048,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &910858393
 SpriteRenderer:
   serializedVersion: 2
@@ -2089,7 +2097,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2451,6 +2459,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &1018433603
 SpriteRenderer:
   serializedVersion: 2
@@ -2498,7 +2508,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3698,6 +3708,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &1764164869
 SpriteRenderer:
   serializedVersion: 2
@@ -3745,7 +3757,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4254,6 +4266,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &1880300832
 SpriteRenderer:
   serializedVersion: 2
@@ -4301,7 +4315,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4738,6 +4752,8 @@ MonoBehaviour:
   arrowSize: 2
   dropRadius: 0.6
   maxActiveLines: 3
+  hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
+  maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
 --- !u!212 &2071161850
 SpriteRenderer:
   serializedVersion: 2
@@ -4785,7 +4801,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1781803527206966719, guid: 94573b4e5f81d9b4ba78feb7e3fae063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

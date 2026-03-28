@@ -38,7 +38,7 @@ public class NodePastatas : MonoBehaviour
         public NodePastatas target;
         public int studentsLeft;
         public float timer;
-        public OwnerType senderOwner;  // line field removed
+        public OwnerType senderOwner;
     }
     private List<SendOperation> activeSends = new List<SendOperation>();
 
@@ -63,6 +63,18 @@ public class NodePastatas : MonoBehaviour
 
     private static NodePastatas selectedNode;
 
+    public GameObject hitPulsePrefab;
+
+    private static readonly Color playerPulseColor = new Color(0.2f, 0.6f, 1f, 0.8f);  // blue
+    private static readonly Color aiPulseColor = new Color(1f, 0.2f, 0.2f, 0.8f);      // red
+
+    public GameObject maxPulsePrefab;
+    private GameObject activeMaxPulse;
+
+    private static readonly Color playerMaxColor = new Color(0.2f, 0.6f, 1f, 0.5f);  // blue
+    private static readonly Color aiMaxColor = new Color(1f, 0.2f, 0.2f, 0.5f);      // red
+    private static readonly Color neutralMaxColor = new Color(1f, 1f, 1f, 0.5f);     // white
+
     void Start()
     {
         countText = GetComponentInChildren<TextMesh>();
@@ -77,6 +89,25 @@ public class NodePastatas : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, 0.5f);
+
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.gameObject == gameObject && owner == OwnerType.Player)
+                {
+                    selectedNode = this;
+                    dragLine.material = playerLineInstance;
+                    dragLine.positionCount = 2;
+                    dragLine.SetPosition(0, transform.position);
+                    dragLine.SetPosition(1, transform.position);
+                    break;
+                }
+            }
+        }
+
         if ((owner == OwnerType.Player || owner == OwnerType.AI) && studentCount < maxStudents)
         {
             float dynamicInterval = generateInterval;
@@ -171,17 +202,15 @@ public class NodePastatas : MonoBehaviour
             sr.sprite = playerSprite;
         else if (owner == OwnerType.AI && aiSprite != null)
             sr.sprite = aiSprite;
-    }
 
-    void OnMouseDown()
-    {
-        if (owner != OwnerType.Player) return;
+        if (activeMaxPulse != null)
+        {
+            Color c = owner == OwnerType.Player ? playerMaxColor :
+                      owner == OwnerType.AI ? aiMaxColor :
+                                                  neutralMaxColor;
 
-        selectedNode = this;
-        dragLine.material = playerLineInstance;
-        dragLine.positionCount = 2;
-        dragLine.SetPosition(0, transform.position);
-        dragLine.SetPosition(1, transform.position);
+            activeMaxPulse.GetComponent<SpriteRenderer>().color = c;
+        }
     }
 
     public bool SendStudents(NodePastatas target)
@@ -250,6 +279,14 @@ public class NodePastatas : MonoBehaviour
             return;
         }
 
+        if (hitPulsePrefab != null)
+        {
+            Color pulseColor = (source.owner == OwnerType.Player) ? playerPulseColor : aiPulseColor;
+            GameObject pulse = Instantiate(hitPulsePrefab, transform.position, Quaternion.identity);
+            pulse.layer = LayerMask.NameToLayer("Ignore Raycast");
+            pulse.GetComponent<HitPulse>().Init(pulseColor);
+        }
+
         studentCount--;
 
         if (studentCount <= 0)
@@ -272,6 +309,8 @@ public class NodePastatas : MonoBehaviour
     {
         if (countText != null)
             countText.text = studentCount.ToString();
+
+        UpdateMaxPulse();
     }
 
     public void StudentArrived()
@@ -291,6 +330,33 @@ public class NodePastatas : MonoBehaviour
 
                 activeSends.RemoveAt(i);
                 break;
+            }
+        }
+    }
+
+    void UpdateMaxPulse()
+    {
+        if (studentCount >= maxStudents && owner == OwnerType.Player) 
+        {
+            if (activeMaxPulse == null && maxPulsePrefab != null)
+            {
+                activeMaxPulse = Instantiate(maxPulsePrefab, transform.position, Quaternion.identity, transform);
+
+                activeMaxPulse.layer = LayerMask.NameToLayer("Ignore Raycast");
+
+                Color c = owner == OwnerType.Player ? playerMaxColor :
+                          owner == OwnerType.AI ? aiMaxColor :
+                                                      neutralMaxColor;
+
+                activeMaxPulse.GetComponent<SpriteRenderer>().color = c;
+            }
+        }
+        else
+        {
+            if (activeMaxPulse != null)
+            {
+                Destroy(activeMaxPulse);
+                activeMaxPulse = null;
             }
         }
     }
