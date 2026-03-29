@@ -113,9 +113,9 @@ public class NodePastatas : MonoBehaviour
             float dynamicInterval = generateInterval;
 
             if (studentCount > 50)
-                dynamicInterval = 0.45f;
+                dynamicInterval = Mathf.Min(generateInterval, 0.45f);
             else if (studentCount > 20)
-                dynamicInterval = 0.5f;
+                dynamicInterval = Mathf.Min(generateInterval, 0.5f);
 
             timer += Time.deltaTime;
 
@@ -258,7 +258,7 @@ public class NodePastatas : MonoBehaviour
             target = target,
             studentsLeft = sendAmount,
             timer = 0f,
-            senderOwner = owner   // no line field
+            senderOwner = owner 
         });
 
         if (audioSource != null && sendStudentSound != null)
