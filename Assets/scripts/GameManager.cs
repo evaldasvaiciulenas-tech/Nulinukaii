@@ -73,6 +73,9 @@ public class GameManager : MonoBehaviour
             winPanel.SetActive(true);
 
         Time.timeScale = 0f;
+
+        if (pauseButton != null)
+            pauseButton.SetActive(false);
     }
     void LoseGame()
     {
@@ -90,5 +93,17 @@ public class GameManager : MonoBehaviour
             losePanel.SetActive(true);
 
         Time.timeScale = 0f;
+
+        if (pauseButton != null)
+            pauseButton.SetActive(false);
     }
+
+    public void NextLevel()
+    {
+        Time.timeScale = 1;
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentIndex + 1);
+    }
+
+    public GameObject pauseButton;
 }

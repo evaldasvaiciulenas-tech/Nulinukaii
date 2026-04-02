@@ -1,31 +1,38 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SettingsMenu : MonoBehaviour
+public class SettingsManager : MonoBehaviour
 {
-    public Slider musicVolume;
-    public Slider soundEffectsVolume;
-    public Toggle muteSound;
+    public Slider musicSlider;
+    public Slider soundEffectsSlider;
+    public Toggle muteToggle;
 
     void Start()
     {
-        musicVolume.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        soundEffectsVolume.value = PlayerPrefs.GetFloat("SoundEffectsVolume", 1f);
-        muteSound.isOn = PlayerPrefs.GetInt("MuteSound", 0) == 1;
-        AudioListener.volume = musicVolume.value;
-        AudioListener.pause = muteSound.isOn;
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        soundEffectsSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        muteToggle.isOn = PlayerPrefs.GetInt("MuteSound", 0) == 1;
+        AudioListener.pause = muteToggle.isOn;
+        AudioListener.volume = musicSlider.value;
     }
 
-    public void SetMute(bool isMuted)
+    public void SetMusicVolume(float value)
     {
-        PlayerPrefs.SetInt("MuteSound", isMuted ? 1 : 0);
-        AudioListener.pause = isMuted;
-    }
-
-    public void Back()
-    {
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        AudioListener.volume = muteToggle.isOn ? 0f : value;
         PlayerPrefs.Save();
-        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        PlayerPrefs.SetFloat("SFXVolume", value);
+        PlayerPrefs.Save();
+    }
+
+    public void SetMute(bool muted)
+    {
+        PlayerPrefs.SetInt("MuteSound", muted ? 1 : 0);
+        AudioListener.pause = muted;
+        PlayerPrefs.Save();
     }
 }
