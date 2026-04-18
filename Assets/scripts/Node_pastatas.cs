@@ -75,8 +75,20 @@ public class NodePastatas : MonoBehaviour
     private static readonly Color aiMaxColor = new Color(1f, 0.2f, 0.2f, 0.5f);      // red
     private static readonly Color neutralMaxColor = new Color(1f, 1f, 1f, 0.5f);     // white
 
+    [Header("Freeze Effect")]
+    public Color frozenTint = new Color(0.4f, 0.8f, 1f, 1f); // icy blue
+    private Color originalColor;
+    private SpriteRenderer sr;
+
+    //Specialieji veiksmai
+    private bool isFrozen = false;
+    private float freezeTimer = 0f;
+
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        originalColor = sr.color;
+
         countText = GetComponentInChildren<TextMesh>();
         UpdateText();
         dragLine.positionCount = 0;
@@ -89,8 +101,26 @@ public class NodePastatas : MonoBehaviour
 
     void Update()
     {
+
+        if (isFrozen)
+        {
+            freezeTimer -= Time.deltaTime;
+
+            if (freezeTimer <= 0f)
+            {
+                isFrozen = false;
+
+                if (sr != null)
+                    sr.color = originalColor; 
+            }
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
+
+            if (AbilityManager.Instance != null && AbilityManager.Instance.IsFreezeMode)
+                return;
+
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, 0.5f);
 
@@ -108,7 +138,9 @@ public class NodePastatas : MonoBehaviour
             }
         }
 
-        if ((owner == OwnerType.Player || owner == OwnerType.AI) && studentCount < maxStudents)
+        if (!isFrozen &&
+        (owner == OwnerType.Player || owner == OwnerType.AI) &&
+        studentCount < maxStudents)
         {
             float dynamicInterval = generateInterval;
 
@@ -359,5 +391,14 @@ public class NodePastatas : MonoBehaviour
                 activeMaxPulse = null;
             }
         }
+
+    }
+    public void FreezeNode(float duration)
+    {
+        isFrozen = true;
+        freezeTimer = duration;
+
+        if (sr != null)
+            sr.color = frozenTint;
     }
 }
