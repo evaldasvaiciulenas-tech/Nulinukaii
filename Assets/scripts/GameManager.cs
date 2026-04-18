@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
     private MusicManager musicManager;
 
+    public GameObject pauseButton;
+    public GameObject freezeButton;
+
+
     private bool gameEnded = false;
     void Start()
     {
@@ -76,6 +80,8 @@ public class GameManager : MonoBehaviour
 
         if (pauseButton != null)
             pauseButton.SetActive(false);
+        if (freezeButton != null)
+            freezeButton.SetActive(false);
     }
     void LoseGame()
     {
@@ -96,6 +102,8 @@ public class GameManager : MonoBehaviour
 
         if (pauseButton != null)
             pauseButton.SetActive(false);
+        if (freezeButton != null)
+            freezeButton.SetActive(false);
     }
 
     public void NextLevel()
@@ -105,5 +113,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentIndex + 1);
     }
 
-    public GameObject pauseButton;
 }
