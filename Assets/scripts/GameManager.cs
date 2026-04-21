@@ -18,8 +18,74 @@ public class GameManager : MonoBehaviour
     private bool gameEnded = false;
     void Start()
     {
+        // Reset static state
+        NodePastatas.playerActiveLines = 0;
+        NodePastatas.aiActiveLines = 0;
+
+        ApplyDifficulty();
+
         audioSource = GetComponent<AudioSource>();
         musicManager = FindObjectOfType<MusicManager>();
+    }
+
+    void ApplyDifficulty()
+    {
+        if (DifficultyManager.Instance == null) return;
+
+        float generateInterval, freezeCooldown, freezeDuration;
+        float aggression, actionInterval; // add these
+        int maxLines;
+
+        switch (DifficultyManager.Instance.currentDifficulty)
+        {
+            case DifficultyManager.Difficulty.Easy:
+                generateInterval = 1f;
+                maxLines = 2;
+                freezeCooldown = 8f;
+                freezeDuration = 5f;
+                aggression = 0.3f;    
+                actionInterval = 2; 
+                break;
+            case DifficultyManager.Difficulty.Hard:
+                generateInterval = 0.7f;
+                maxLines = 4;
+                freezeCooldown = 15f;
+                freezeDuration = 5f;
+                aggression = 0.8f;    // almost always attacks
+                actionInterval = 1.5f;  // thinks faster
+                break;
+            default: // Normal
+                generateInterval = 1f;
+                maxLines = 3;
+                freezeCooldown = 10f;
+                freezeDuration = 5f;
+                aggression = 0.6f;    // original value
+                actionInterval = 2f;  // original value
+                break;
+        }
+
+        foreach (NodePastatas node in FindObjectsOfType<NodePastatas>())
+        {
+            if (node.owner == NodePastatas.OwnerType.AI)
+            {
+                node.generateInterval = generateInterval;
+                node.maxActiveLines = maxLines;
+            }
+        }
+
+        // Apply to AIBot
+        AIBot bot = FindObjectOfType<AIBot>();
+        if (bot != null)
+        {
+            bot.aggression = aggression;
+            bot.actionInterval = actionInterval;
+        }
+
+        if (AbilityManager.Instance != null)
+        {
+            AbilityManager.Instance.freezeCooldown = freezeCooldown;
+            AbilityManager.Instance.freezeDuration = freezeDuration;
+        }
     }
 
     void Update()

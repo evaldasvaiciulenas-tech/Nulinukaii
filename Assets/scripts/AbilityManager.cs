@@ -31,9 +31,9 @@ public class AbilityManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D hit = Physics2D.OverlapCircle(mousePos, 0.5f);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(mousePos, 0.5f); // changed
 
-            if (hit != null)
+            foreach (Collider2D hit in hits) // loop through all hits
             {
                 NodePastatas node = hit.GetComponent<NodePastatas>();
 
@@ -41,8 +41,9 @@ public class AbilityManager : MonoBehaviour
                 {
                     node.FreezeNode(freezeDuration);
                     freezeMode = false;
-                    freezeCooldownTimer = freezeCooldown; // start cooldown after use
+                    freezeCooldownTimer = freezeCooldown;
                     Debug.Log("Freeze used on: " + node.name);
+                    break; 
                 }
             }
         }

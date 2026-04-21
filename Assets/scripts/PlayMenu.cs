@@ -5,7 +5,7 @@ public class PlayMenu : MonoBehaviour
 {
     public void PlayVsBot()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("ChooseDifficulty");
     }
 
     public void Back()
