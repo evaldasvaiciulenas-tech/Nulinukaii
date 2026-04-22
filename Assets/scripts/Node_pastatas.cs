@@ -409,4 +409,17 @@ public class NodePastatas : MonoBehaviour
         if (sr != null)
             sr.color = frozenTint;
     }
+    public void BoostNode(float duration, float multiplier)
+    {
+        StartCoroutine(BoostCoroutine(duration, multiplier));
+    }
+
+    private System.Collections.IEnumerator BoostCoroutine(float duration, float multiplier)
+    {
+        float originalInterval = generateInterval;
+        generateInterval = generateInterval * (1f - multiplier); // 50% faster
+                                                                 // Optional: tint the node green while boosted
+        yield return new WaitForSeconds(duration);
+        generateInterval = originalInterval;
+    }
 }

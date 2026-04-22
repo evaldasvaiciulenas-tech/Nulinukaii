@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseButton;
     public GameObject freezeButton;
+    public GameObject sabotageButton;
+    public GameObject boostButton;
 
 
     private bool gameEnded = false;
@@ -149,6 +151,8 @@ public class GameManager : MonoBehaviour
             pauseButton.SetActive(false);
         if (freezeButton != null)
             freezeButton.SetActive(false);
+        if (sabotageButton != null) sabotageButton.SetActive(false);
+        if (boostButton != null) boostButton.SetActive(false);
     }
     void LoseGame()
     {
@@ -171,6 +175,8 @@ public class GameManager : MonoBehaviour
             pauseButton.SetActive(false);
         if (freezeButton != null)
             freezeButton.SetActive(false);
+        if (sabotageButton != null) sabotageButton.SetActive(false);
+        if (boostButton != null) boostButton.SetActive(false);
     }
 
     public void NextLevel()
