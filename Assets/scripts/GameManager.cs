@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     private bool gameEnded = false;
     void Start()
     {
-        // Reset static state
         NodePastatas.playerActiveLines = 0;
         NodePastatas.aiActiveLines = 0;
 
@@ -28,6 +27,9 @@ public class GameManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         musicManager = FindObjectOfType<MusicManager>();
+
+        if (musicManager != null)
+            musicManager.PlayMusic(); // restart music for this level
     }
 
     void ApplyDifficulty()

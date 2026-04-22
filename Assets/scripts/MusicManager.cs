@@ -2,20 +2,37 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager Instance;
+
     private AudioSource audioSource;
 
-    void Start()
+    void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1f);
         AudioListener.pause = PlayerPrefs.GetInt("MuteSound", 0) == 1;
+        audioSource.Play();
+    }
+
+    public void PlayMusic()
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+            audioSource.Play();
     }
 
     public void StopMusic()
     {
-        if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
-
         if (audioSource != null)
             audioSource.Stop();
     }
