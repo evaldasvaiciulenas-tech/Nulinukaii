@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class NodePastatas : MonoBehaviour
 {
+    [HideInInspector] public float baseGenerateInterval;
+    [HideInInspector] public int baseMaxActiveLines;
     public enum OwnerType { Neutral, Player, AI }
     public OwnerType owner = OwnerType.Neutral;
 
@@ -83,6 +85,12 @@ public class NodePastatas : MonoBehaviour
     //Specialieji veiksmai
     private bool isFrozen = false;
     private float freezeTimer = 0f;
+
+    void Awake()
+    {
+        baseGenerateInterval = generateInterval;
+        baseMaxActiveLines = maxActiveLines;
+    }
 
     void Start()
     {

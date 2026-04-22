@@ -32,35 +32,36 @@ public class GameManager : MonoBehaviour
     {
         if (DifficultyManager.Instance == null) return;
 
-        float generateInterval, freezeCooldown, freezeDuration;
-        float aggression, actionInterval; // add these
-        int maxLines;
+        float intervalMultiplier;
+        int maxLinesBonus;
+        float freezeCooldown, freezeDuration;
+        float aggression, actionInterval;
 
         switch (DifficultyManager.Instance.currentDifficulty)
         {
             case DifficultyManager.Difficulty.Easy:
-                generateInterval = 1f;
-                maxLines = 2;
+                intervalMultiplier = 1.4f;   // AI generates slower
+                maxLinesBonus = -1;          // one fewer max line
                 freezeCooldown = 8f;
                 freezeDuration = 5f;
-                aggression = 0.3f;    
-                actionInterval = 2; 
+                aggression = 0.3f;
+                actionInterval = 2f;
                 break;
             case DifficultyManager.Difficulty.Hard:
-                generateInterval = 0.7f;
-                maxLines = 4;
+                intervalMultiplier = 0.65f;   // AI generates faster
+                maxLinesBonus = 1;           // one extra max line
                 freezeCooldown = 15f;
                 freezeDuration = 5f;
-                aggression = 0.8f;    // almost always attacks
-                actionInterval = 1.5f;  // thinks faster
+                aggression = 0.8f;
+                actionInterval = 1.5f;
                 break;
             default: // Normal
-                generateInterval = 1f;
-                maxLines = 3;
+                intervalMultiplier = 1f;     // no change — use Inspector values as-is
+                maxLinesBonus = 0;
                 freezeCooldown = 10f;
                 freezeDuration = 5f;
-                aggression = 0.6f;    // original value
-                actionInterval = 2f;  // original value
+                aggression = 0.6f;
+                actionInterval = 2f;
                 break;
         }
 
@@ -68,12 +69,12 @@ public class GameManager : MonoBehaviour
         {
             if (node.owner == NodePastatas.OwnerType.AI)
             {
-                node.generateInterval = generateInterval;
-                node.maxActiveLines = maxLines;
+                node.generateInterval = node.baseGenerateInterval * intervalMultiplier;
+                node.maxActiveLines = Mathf.Max(1, node.baseMaxActiveLines + maxLinesBonus);
             }
+            // Player nodes are untouched entirely
         }
 
-        // Apply to AIBot
         AIBot bot = FindObjectOfType<AIBot>();
         if (bot != null)
         {
@@ -174,7 +175,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
     }

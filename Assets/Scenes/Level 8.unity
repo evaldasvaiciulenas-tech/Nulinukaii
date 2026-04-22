@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 5401935372293044938}
     - target: {fileID: 8258093797142034012, guid: 884eedf0473bcf94cbeba33a15585577, type: 3}
       propertyPath: maxStudents
-      value: 500
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8258093797142034012, guid: 884eedf0473bcf94cbeba33a15585577, type: 3}
       propertyPath: playerSprite
@@ -297,6 +297,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
@@ -410,6 +414,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
@@ -523,6 +531,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
@@ -641,6 +653,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
@@ -754,6 +770,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
@@ -867,6 +887,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
@@ -980,6 +1004,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
@@ -1081,6 +1109,10 @@ PrefabInstance:
       propertyPath: neutralSprite
       value: 
       objectReference: {fileID: 1322894406270137018, guid: 18d02558d9c52ac43b77795b3dfc04a0, type: 3}
+    - target: {fileID: 4410560301483232773, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
+      propertyPath: generateInterval
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4932028978786362686, guid: 89bf92e95debc0e4e94715038677726c, type: 3}
       propertyPath: m_Color.rgba
       value: 4293322470
