@@ -3,7 +3,6 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance;
-
     private AudioSource audioSource;
 
     void Awake()
@@ -20,8 +19,6 @@ public class MusicManager : MonoBehaviour
         }
 
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        AudioListener.pause = PlayerPrefs.GetInt("MuteSound", 0) == 1;
         audioSource.Play();
     }
 
