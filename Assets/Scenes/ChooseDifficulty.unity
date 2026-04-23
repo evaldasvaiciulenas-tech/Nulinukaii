@@ -173,11 +173,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2471353026788487580, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2471353026788487580, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
       propertyPath: m_LocalScale.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471353026788487580, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2471353026788487580, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
       propertyPath: m_LocalPosition.x
@@ -222,6 +226,22 @@ PrefabInstance:
     - target: {fileID: 2643814180946411549, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
       propertyPath: m_Name
       value: Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951225290463176593, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 05598e2cc8738ad489547b7288f853de, type: 3}
+    - target: {fileID: 6951225290463176593, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
+      propertyPath: m_PlaybackSpeed
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951225290463176593, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
+      propertyPath: 'm_DirectAudioMutes.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951225290463176593, guid: a54d3cf43e8e2e14e8b25b1d25191542, type: 3}
+      propertyPath: 'm_DirectAudioVolumes.Array.data[0]'
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
