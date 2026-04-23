@@ -7,4 +7,8 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+    public void Back()
+    {
+        SceneManager.LoadScene("ChooseDifficulty");
+    }
 }

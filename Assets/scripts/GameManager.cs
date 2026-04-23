@@ -11,11 +11,86 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
     private MusicManager musicManager;
 
+    public GameObject pauseButton;
+    public GameObject freezeButton;
+    public GameObject sabotageButton;
+    public GameObject boostButton;
+
+
     private bool gameEnded = false;
     void Start()
     {
+        NodePastatas.playerActiveLines = 0;
+        NodePastatas.aiActiveLines = 0;
+
+        ApplyDifficulty();
+
         audioSource = GetComponent<AudioSource>();
         musicManager = FindObjectOfType<MusicManager>();
+
+        if (musicManager != null)
+            musicManager.PlayMusic(); // restart music for this level
+    }
+
+    void ApplyDifficulty()
+    {
+        if (DifficultyManager.Instance == null) return;
+
+        float intervalMultiplier;
+        int maxLinesBonus;
+        float freezeCooldown, freezeDuration;
+        float aggression, actionInterval;
+
+        switch (DifficultyManager.Instance.currentDifficulty)
+        {
+            case DifficultyManager.Difficulty.Easy:
+                intervalMultiplier = 1.4f;   // AI generates slower
+                maxLinesBonus = -1;          // one fewer max line
+                freezeCooldown = 8f;
+                freezeDuration = 5f;
+                aggression = 0.3f;
+                actionInterval = 2f;
+                break;
+            case DifficultyManager.Difficulty.Hard:
+                intervalMultiplier = 0.65f;   // AI generates faster
+                maxLinesBonus = 1;           // one extra max line
+                freezeCooldown = 15f;
+                freezeDuration = 5f;
+                aggression = 0.8f;
+                actionInterval = 1.5f;
+                break;
+            default: // Normal
+                intervalMultiplier = 1f;     // no change — use Inspector values as-is
+                maxLinesBonus = 0;
+                freezeCooldown = 10f;
+                freezeDuration = 5f;
+                aggression = 0.6f;
+                actionInterval = 2f;
+                break;
+        }
+
+        foreach (NodePastatas node in FindObjectsOfType<NodePastatas>())
+        {
+            if (node.owner == NodePastatas.OwnerType.AI)
+            {
+                node.generateInterval = node.baseGenerateInterval * intervalMultiplier;
+                node.maxActiveLines = Mathf.Max(1, node.baseMaxActiveLines + maxLinesBonus);
+            }
+            // Player nodes are untouched entirely
+        }
+
+        AIBot bot = FindObjectOfType<AIBot>();
+        if (bot != null)
+        {
+            bot.aggression = aggression;
+            bot.actionInterval = actionInterval;
+        }
+
+        if (AbilityManager.Instance != null)
+        {
+            AbilityManager.Instance.freezeCooldown = freezeCooldown;
+            AbilityManager.Instance.freezeDuration = freezeDuration;
+        }
     }
 
     void Update()
@@ -76,6 +151,10 @@ public class GameManager : MonoBehaviour
 
         if (pauseButton != null)
             pauseButton.SetActive(false);
+        if (freezeButton != null)
+            freezeButton.SetActive(false);
+        if (sabotageButton != null) sabotageButton.SetActive(false);
+        if (boostButton != null) boostButton.SetActive(false);
     }
     void LoseGame()
     {
@@ -96,14 +175,17 @@ public class GameManager : MonoBehaviour
 
         if (pauseButton != null)
             pauseButton.SetActive(false);
+        if (freezeButton != null)
+            freezeButton.SetActive(false);
+        if (sabotageButton != null) sabotageButton.SetActive(false);
+        if (boostButton != null) boostButton.SetActive(false);
     }
 
     public void NextLevel()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
     }
 
-    public GameObject pauseButton;
 }
