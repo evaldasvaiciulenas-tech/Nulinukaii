@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject freezeButton;
     public GameObject sabotageButton;
     public GameObject boostButton;
+    public GameObject speedButton;
+    public GameObject shieldButton;
 
 
     private bool gameEnded = false;
@@ -98,7 +100,7 @@ public class GameManager : MonoBehaviour
         if (gameEnded) return;
 
         CheckWinCondition();
-        CheckLoseCondition(); 
+        CheckLoseCondition();
     }
 
     public void ResetLevel()
@@ -149,12 +151,12 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        if (pauseButton != null)
-            pauseButton.SetActive(false);
-        if (freezeButton != null)
-            freezeButton.SetActive(false);
+        if (pauseButton != null) pauseButton.SetActive(false);
+        if (freezeButton != null) freezeButton.SetActive(false);
         if (sabotageButton != null) sabotageButton.SetActive(false);
         if (boostButton != null) boostButton.SetActive(false);
+        if (speedButton != null) speedButton.SetActive(false);
+        if (shieldButton != null) shieldButton.SetActive(false);
     }
     void LoseGame()
     {
@@ -173,12 +175,12 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0f;
 
-        if (pauseButton != null)
-            pauseButton.SetActive(false);
-        if (freezeButton != null)
-            freezeButton.SetActive(false);
+        if (pauseButton != null) pauseButton.SetActive(false);
+        if (freezeButton != null) freezeButton.SetActive(false);
         if (sabotageButton != null) sabotageButton.SetActive(false);
         if (boostButton != null) boostButton.SetActive(false);
+        if (speedButton != null) speedButton.SetActive(false);
+        if (shieldButton != null) shieldButton.SetActive(false);
     }
 
     public void NextLevel()

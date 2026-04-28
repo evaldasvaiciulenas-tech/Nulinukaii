@@ -16,6 +16,15 @@ public class AbilityManager : MonoBehaviour
     public float boostCooldown = 12f;
     public float boostMultiplier = 0.5f; // 50% faster = interval * 0.5
 
+    [Header("Speed Settings")]
+    public float speedDuration = 5f;
+    public float speedCooldown = 12f;
+    public float speedMultiplier = 2f;
+
+    [Header("Shield Settings")]
+    public float shieldDuration = 5f;
+    public float shieldCooldown = 15f;
+
     private bool freezeMode = false;
     private float freezeCooldownTimer = 0f;
 
@@ -24,6 +33,13 @@ public class AbilityManager : MonoBehaviour
 
     private bool boostMode = false;
     private float boostCooldownTimer = 0f;
+
+    private bool speedMode = false;
+    private float speedCooldownTimer = 0f;
+    private float speedActiveTimer = 0f;
+
+    private bool shieldMode = false;
+    private float shieldCooldownTimer = 0f;
 
     public bool IsFreezeMode => freezeMode;
     public bool FreezeReady => freezeCooldownTimer <= 0f;
@@ -37,12 +53,23 @@ public class AbilityManager : MonoBehaviour
     public bool BoostReady => boostCooldownTimer <= 0f;
     public float BoostCooldownRemaining => boostCooldownTimer;
 
+    public bool IsSpeedMode => speedMode;
+    public bool SpeedReady => speedCooldownTimer <= 0f;
+    public bool IsSpeedActive => speedActiveTimer > 0f;
+    public float SpeedCooldownRemaining => speedCooldownTimer;
+
+    public bool IsShieldMode => shieldMode;
+    public bool ShieldReady => shieldCooldownTimer <= 0f;
+    public float ShieldCooldownRemaining => shieldCooldownTimer;
+
     void Awake()
     {
         Instance = this;
         freezeCooldownTimer = freezeCooldown;
         sabotageCooldownTimer = sabotageCooldown;
         boostCooldownTimer = boostCooldown;
+        speedCooldownTimer = speedCooldown;
+        shieldCooldownTimer = shieldCooldown;
     }
 
     void Update()
@@ -50,10 +77,14 @@ public class AbilityManager : MonoBehaviour
         if (freezeCooldownTimer > 0f) freezeCooldownTimer -= Time.deltaTime;
         if (sabotageCooldownTimer > 0f) sabotageCooldownTimer -= Time.deltaTime;
         if (boostCooldownTimer > 0f) boostCooldownTimer -= Time.deltaTime;
+        if (speedCooldownTimer > 0f) speedCooldownTimer -= Time.deltaTime;
+        if (speedActiveTimer > 0f) speedActiveTimer -= Time.deltaTime;
+        if (shieldCooldownTimer > 0f) shieldCooldownTimer -= Time.deltaTime;
 
         if (freezeMode) HandleFreezeClick();
         else if (sabotageMode) HandleSabotageClick();
         else if (boostMode) HandleBoostClick();
+        else if (shieldMode) HandleShieldClick();
     }
 
     void HandleFreezeClick()
@@ -109,6 +140,23 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+    void HandleShieldClick()
+    {
+        if (!Input.GetMouseButtonDown(0)) return;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        foreach (Collider2D hit in Physics2D.OverlapCircleAll(mousePos, 0.5f))
+        {
+            NodePastatas node = hit.GetComponent<NodePastatas>();
+            if (node != null && node.owner == NodePastatas.OwnerType.Player)
+            {
+                node.ShieldNode(shieldDuration);
+                shieldMode = false;
+                shieldCooldownTimer = shieldCooldown;
+                break;
+            }
+        }
+    }
+
     public void ActivateFreeze()
     {
         if (freezeCooldownTimer > 0f) return;
@@ -125,5 +173,37 @@ public class AbilityManager : MonoBehaviour
     {
         if (boostCooldownTimer > 0f) return;
         boostMode = true; freezeMode = false; sabotageMode = false;
+    }
+
+    public void ActivateSpeed()
+    {
+        if (speedCooldownTimer > 0f) return;
+        speedCooldownTimer = speedCooldown;
+        speedActiveTimer = speedDuration;
+
+        foreach (Student s in FindObjectsOfType<Student>())
+            if (s.GetSource() != null && s.GetSource().owner == NodePastatas.OwnerType.Player)
+                s.ApplySpeedBoost(speedMultiplier, speedDuration);
+
+        StartCoroutine(SpeedAllNodesCoroutine());
+    }
+
+    private System.Collections.IEnumerator SpeedAllNodesCoroutine()
+    {
+        NodePastatas[] playerNodes = System.Array.FindAll(
+            FindObjectsOfType<NodePastatas>(),
+            n => n.owner == NodePastatas.OwnerType.Player
+        );
+
+        foreach (NodePastatas node in playerNodes)
+            node.BoostSendSpeed(speedMultiplier, speedDuration);
+
+        yield return null;
+    }
+
+    public void ActivateShield()
+    {
+        if (shieldCooldownTimer > 0f) return;
+        shieldMode = true; freezeMode = false; sabotageMode = false; boostMode = false; speedMode = false;
     }
 }

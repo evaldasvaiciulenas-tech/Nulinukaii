@@ -86,6 +86,9 @@ public class NodePastatas : MonoBehaviour
     private bool isFrozen = false;
     private float freezeTimer = 0f;
 
+    private bool isShielded = false;
+    public Color shieldTint = new Color(1f, 0.85f, 0f, 1f); // auksinis
+
     void Awake()
     {
         baseGenerateInterval = generateInterval;
@@ -309,6 +312,8 @@ public class NodePastatas : MonoBehaviour
 
     public void ReceiveStudent(NodePastatas source)
     {
+        if (isShielded && owner == OwnerType.Player) return;
+
         if (owner == source.owner)
         {
             if (studentCount < maxStudents)
@@ -421,5 +426,31 @@ public class NodePastatas : MonoBehaviour
                                                                  // Optional: tint the node green while boosted
         yield return new WaitForSeconds(duration);
         generateInterval = originalInterval;
+    }
+    public void BoostSendSpeed(float multiplier, float duration)
+    {
+        StartCoroutine(SendSpeedCoroutine(multiplier, duration));
+    }
+
+    private System.Collections.IEnumerator SendSpeedCoroutine(float multiplier, float duration)
+    {
+        float original = sendInterval;
+        sendInterval /= multiplier; // greičiau siunčia studentus
+        yield return new WaitForSeconds(duration);
+        sendInterval = original;
+    }
+
+    public void ShieldNode(float duration)
+    {
+        StartCoroutine(ShieldCoroutine(duration));
+    }
+
+    private System.Collections.IEnumerator ShieldCoroutine(float duration)
+    {
+        isShielded = true;
+        if (sr != null) sr.color = shieldTint;
+        yield return new WaitForSeconds(duration);
+        isShielded = false;
+        if (sr != null) sr.color = originalColor;
     }
 }

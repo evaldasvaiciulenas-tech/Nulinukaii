@@ -11,6 +11,7 @@ public class MusicManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            audioSource = GetComponent<AudioSource>();
         }
         else
         {
@@ -19,13 +20,15 @@ public class MusicManager : MonoBehaviour
         }
 
         audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
     }
-
     public void PlayMusic()
     {
-        if (audioSource != null && !audioSource.isPlaying)
+        Debug.Log("PlayMusic - audioSource: " + audioSource + ", isPlaying: " + (audioSource != null ? audioSource.isPlaying.ToString() : "null"));
+        if (audioSource != null)
+        {
+            audioSource.Stop();
             audioSource.Play();
+        }
     }
 
     public void StopMusic()

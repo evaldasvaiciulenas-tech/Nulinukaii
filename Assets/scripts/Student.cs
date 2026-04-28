@@ -10,6 +10,19 @@ public class Student : MonoBehaviour
     private NodePastatas target;
     private NodePastatas source;
     private SpriteRenderer sr;
+    public NodePastatas GetSource() => source;
+
+    public void ApplySpeedBoost(float multiplier, float duration)
+    {
+        StartCoroutine(SpeedBoostCoroutine(multiplier, duration));
+    }
+
+    private System.Collections.IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
+    {
+        speed *= multiplier;
+        yield return new WaitForSeconds(duration);
+        speed /= multiplier;
+    }
 
     void Start()
     {
@@ -21,8 +34,7 @@ public class Student : MonoBehaviour
         target = t;
         source = s;
 
-        if (sr == null)
-            sr = GetComponent<SpriteRenderer>();
+        if (sr == null) sr = GetComponent<SpriteRenderer>();
 
         if (source.owner == NodePastatas.OwnerType.Player && playerSprite != null)
             sr.sprite = playerSprite;
@@ -30,9 +42,15 @@ public class Student : MonoBehaviour
             sr.sprite = aiSprite;
 
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        float travelTime = distance / 2f; 
-
+        float travelTime = distance / 2f;
         speed = distance / travelTime;
+
+        if (source.owner == NodePastatas.OwnerType.Player &&
+            AbilityManager.Instance != null &&
+            AbilityManager.Instance.IsSpeedActive)
+        {
+            speed *= AbilityManager.Instance.speedMultiplier;
+        }
     }
 
     void Update()
@@ -52,4 +70,5 @@ public class Student : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
