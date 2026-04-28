@@ -325,6 +325,17 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &243527550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6879132054583756658, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &330443894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2958968487464683733, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
@@ -675,6 +686,22 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &431403013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2733081452924427486, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &431403015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4777210876393529173, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431403013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &443055934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,11 +1129,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: boostEffectPrefab
+      value: 
+      objectReference: {fileID: 8873619402137819747, guid: aa959c96d30e06e4e99c9ece2bc534f4, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: speedEffectPrefab
+      value: 
+      objectReference: {fileID: 3552444881625287318, guid: 13237e8786ede7247b1a848aba5762a2, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: freezeEffectPrefab
+      value: 
+      objectReference: {fileID: 3824192030424274395, guid: 70b9eccce1f527045a925d404d11ec13, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: shieldEffectPrefab
+      value: 
+      objectReference: {fileID: 3057349874001335573, guid: 56fe3218b13f2dc47a728b7ac15af184, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: sabotageEffectPrefab
+      value: 
+      objectReference: {fileID: 3594041234794526718, guid: b9fa8c785440c334287816fc62e0ee3c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+--- !u!1 &670802922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1578894399516244914, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &847591290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1296,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847591290}
   m_CullTransparentMesh: 1
+--- !u!1 &903507467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8601274514268454685, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &903507470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6240858377328873480, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903507467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &903507473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903507467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ce5e8a9768e3c4181faa4c8237186d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpeedButtonUI
+  speedButton: {fileID: 903507470}
+  cooldownText: {fileID: 243527550}
+  selectionGlow: {fileID: 670802922}
 --- !u!1 &910858390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,6 +1386,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &910858393
 SpriteRenderer:
   serializedVersion: 2
@@ -1580,6 +1664,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &1018433603
 SpriteRenderer:
   serializedVersion: 2
@@ -2271,6 +2356,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &1454730010
 SpriteRenderer:
   serializedVersion: 2
@@ -2730,6 +2816,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1378797423850708863, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
   m_PrefabInstance: {fileID: 1867993343}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1610390770 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2499321723350803863, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1637055306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,6 +2974,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &1764164869
 SpriteRenderer:
   serializedVersion: 2
@@ -3108,6 +3206,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32024469424810081, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171353717487068594, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: cooldownText
+      value: 
+      objectReference: {fileID: 1610390770}
+    - target: {fileID: 171353717487068594, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: shieldButton
+      value: 
+      objectReference: {fileID: 431403015}
+    - target: {fileID: 171353717487068594, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 1962538772}
     - target: {fileID: 723543417015097036, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -3210,11 +3324,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1766703274077590678, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -250
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 1766703274077590678, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 1936635243225602525, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3312,6 +3426,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2733081452924427486, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3141848327653786912, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -3348,6 +3466,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActivateSabotage
       objectReference: {fileID: 0}
+    - target: {fileID: 3711980729069626483, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711980729069626483, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711980729069626483, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711980729069626483, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711980729069626483, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711980729069626483, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3972952339446629166, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -3403,6 +3545,14 @@ PrefabInstance:
     - target: {fileID: 4088551774438097493, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777210876393529173, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1884899525}
+    - target: {fileID: 4777210876393529173, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateShield
       objectReference: {fileID: 0}
     - target: {fileID: 5007473892783141146, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_UiScaleMode
@@ -3439,6 +3589,30 @@ PrefabInstance:
     - target: {fileID: 5053393845018278800, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120969120941395551, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120969120941395551, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120969120941395551, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120969120941395551, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120969120941395551, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120969120941395551, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5374682484706554936, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_Pivot.x
@@ -3564,6 +3738,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActivateBoost
       objectReference: {fileID: 0}
+    - target: {fileID: 6240858377328873480, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1884899525}
+    - target: {fileID: 6240858377328873480, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateSpeed
+      objectReference: {fileID: 0}
     - target: {fileID: 6523522714829547436, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 300
@@ -3684,6 +3866,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8601274514268454685, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662493757974274882, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6717884257390833292, guid: 61229fe360dfa7841a1efdfb8bc8c0c4, type: 3}
     - target: {fileID: 8937716265399996453, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_Color.b
       value: 0.9843137
@@ -3712,10 +3902,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.32156864
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3190521472836100824, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8601274514268454685, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 903507473}
   m_SourcePrefab: {fileID: 100100000, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
 --- !u!1 &1880300829
 GameObject:
@@ -3776,6 +3970,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &1880300832
 SpriteRenderer:
   serializedVersion: 2
@@ -4005,6 +4200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d45f3b344d6ae841a73d70ed0520334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbilityManager
+--- !u!1 &1962538772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5333666112445589555, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 1867993343}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1995927437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5748622592868635936, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
@@ -4148,6 +4348,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &2071161850
 SpriteRenderer:
   serializedVersion: 2
@@ -4604,9 +4805,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 637872775}
     - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
+      propertyPath: speedButton
+      value: 
+      objectReference: {fileID: 903507467}
+    - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
       propertyPath: freezeButton
       value: 
       objectReference: {fileID: 1819102824}
+    - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
+      propertyPath: shieldButton
+      value: 
+      objectReference: {fileID: 431403013}
     - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
       propertyPath: sabotageButton
       value: 

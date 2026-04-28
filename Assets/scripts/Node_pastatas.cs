@@ -312,7 +312,8 @@ public class NodePastatas : MonoBehaviour
 
     public void ReceiveStudent(NodePastatas source)
     {
-        if (isShielded && owner == OwnerType.Player) return;
+        if (isShielded && owner == OwnerType.Player && source.owner != OwnerType.Player) 
+            return;
 
         if (owner == source.owner)
         {

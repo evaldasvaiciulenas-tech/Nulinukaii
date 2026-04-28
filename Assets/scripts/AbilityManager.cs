@@ -25,6 +25,13 @@ public class AbilityManager : MonoBehaviour
     public float shieldDuration = 5f;
     public float shieldCooldown = 15f;
 
+    [Header("Ability Visual Effects")]
+    public GameObject sabotageEffectPrefab;
+    public GameObject freezeEffectPrefab;
+    public GameObject boostEffectPrefab;
+    public GameObject speedEffectPrefab;
+    public GameObject shieldEffectPrefab;
+
     private bool freezeMode = false;
     private float freezeCooldownTimer = 0f;
 
@@ -97,6 +104,10 @@ public class AbilityManager : MonoBehaviour
             if (node != null && node.owner != NodePastatas.OwnerType.Player)
             {
                 node.FreezeNode(freezeDuration);
+                SpawnEffect(
+                    freezeEffectPrefab,
+                    node.transform.position
+                );
                 freezeMode = false;
                 freezeCooldownTimer = freezeCooldown;
                 break;
@@ -114,6 +125,11 @@ public class AbilityManager : MonoBehaviour
             if (node != null && node.owner == NodePastatas.OwnerType.AI)
             {
                 node.studentCount = Mathf.FloorToInt(node.studentCount * 0.5f);
+
+                SpawnEffect(
+                    sabotageEffectPrefab,
+                    node.transform.position
+                );
                 sabotageMode = false;
                 sabotageCooldownTimer = sabotageCooldown;
                 Debug.Log("Sabotage used on: " + node.name);
@@ -132,6 +148,10 @@ public class AbilityManager : MonoBehaviour
             if (node != null && node.owner == NodePastatas.OwnerType.Player)
             {
                 node.BoostNode(boostDuration, boostMultiplier);
+                    SpawnEffect(
+                        boostEffectPrefab,
+                        node.transform.position
+                    );
                 boostMode = false;
                 boostCooldownTimer = boostCooldown;
                 Debug.Log("Boost used on: " + node.name);
@@ -150,6 +170,10 @@ public class AbilityManager : MonoBehaviour
             if (node != null && node.owner == NodePastatas.OwnerType.Player)
             {
                 node.ShieldNode(shieldDuration);
+                SpawnEffect(
+                    shieldEffectPrefab,
+                    node.transform.position
+                );
                 shieldMode = false;
                 shieldCooldownTimer = shieldCooldown;
                 break;
@@ -185,6 +209,18 @@ public class AbilityManager : MonoBehaviour
             if (s.GetSource() != null && s.GetSource().owner == NodePastatas.OwnerType.Player)
                 s.ApplySpeedBoost(speedMultiplier, speedDuration);
 
+        NodePastatas[] playerNodes = FindObjectsOfType<NodePastatas>();
+
+        foreach (NodePastatas node in playerNodes)
+        {
+            if (node.owner == NodePastatas.OwnerType.Player)
+            {
+                SpawnEffect(
+                    speedEffectPrefab,
+                    node.transform.position
+                );
+            }
+        }
         StartCoroutine(SpeedAllNodesCoroutine());
     }
 
@@ -205,5 +241,15 @@ public class AbilityManager : MonoBehaviour
     {
         if (shieldCooldownTimer > 0f) return;
         shieldMode = true; freezeMode = false; sabotageMode = false; boostMode = false; speedMode = false;
+    }
+    void SpawnEffect(GameObject effectPrefab, Vector3 position)
+    {
+        if (effectPrefab == null) return;
+
+        Instantiate(
+            effectPrefab,
+            position,
+            Quaternion.identity
+        );
     }
 }

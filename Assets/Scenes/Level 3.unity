@@ -320,6 +320,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6877275914073086125, guid: 93192d732914c8048aa8de89304724d4, type: 3}
   m_PrefabInstance: {fileID: 1083699487}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &482791214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1427594104839413137, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+  m_PrefabInstance: {fileID: 1083699487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +605,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &910858393
 SpriteRenderer:
   serializedVersion: 2
@@ -818,6 +824,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9, y: 0.7}
   m_EdgeRadius: 0
+--- !u!1 &1078509981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7288096843791090240, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+  m_PrefabInstance: {fileID: 1083699487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1083699487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -853,6 +864,14 @@ PrefabInstance:
     - target: {fileID: 39331062121256530, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144239969830630898, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 144239969830630898, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 207953254673355875, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -930,6 +949,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.32156864
       objectReference: {fileID: 0}
+    - target: {fileID: 1427594104839413137, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1439561738114165315, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 300
@@ -973,6 +996,14 @@ PrefabInstance:
     - target: {fileID: 1747539787629966757, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActivateSabotage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814263354821445391, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814263354821445391, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2225380978090131658, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_Color.b
@@ -1222,6 +1253,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5827756498657049200, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 257835440}
+    - target: {fileID: 5827756498657049200, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateSpeed
+      objectReference: {fileID: 0}
     - target: {fileID: 5994824058550679508, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 300
@@ -1300,11 +1339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6884877688893159946, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -250
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 6884877688893159946, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 6909461232060568335, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1341,6 +1380,10 @@ PrefabInstance:
     - target: {fileID: 7228278302515599285, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288096843791090240, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7561596675223793239, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1386,6 +1429,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.32156864
       objectReference: {fileID: 0}
+    - target: {fileID: 8041006203174598551, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8072847076965503485, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_Name
       value: Canvas 2
@@ -1421,6 +1468,14 @@ PrefabInstance:
     - target: {fileID: 9068244729168987882, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActivateFreeze
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142745329163873508, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 257835440}
+    - target: {fileID: 9142745329163873508, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateShield
       objectReference: {fileID: 0}
     - target: {fileID: 9185451312580673825, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_Color.b
@@ -1760,6 +1815,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &1764164869
 SpriteRenderer:
   serializedVersion: 2
@@ -2035,6 +2091,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: boostEffectPrefab
+      value: 
+      objectReference: {fileID: 8873619402137819747, guid: aa959c96d30e06e4e99c9ece2bc534f4, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: speedEffectPrefab
+      value: 
+      objectReference: {fileID: 3552444881625287318, guid: 13237e8786ede7247b1a848aba5762a2, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: freezeEffectPrefab
+      value: 
+      objectReference: {fileID: 3824192030424274395, guid: 70b9eccce1f527045a925d404d11ec13, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: shieldEffectPrefab
+      value: 
+      objectReference: {fileID: 3057349874001335573, guid: 56fe3218b13f2dc47a728b7ac15af184, type: 3}
+    - target: {fileID: 7077179443954637822, guid: ea5debbd07512434691d0262d3e4a141, type: 3}
+      propertyPath: sabotageEffectPrefab
+      value: 
+      objectReference: {fileID: 3594041234794526718, guid: b9fa8c785440c334287816fc62e0ee3c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2253,6 +2329,7 @@ MonoBehaviour:
   hitPulsePrefab: {fileID: 8616411610780592673, guid: 0ee20cab08dc7ad479f4c93fbed980df, type: 3}
   maxPulsePrefab: {fileID: 7741888394616517679, guid: 0f0ad17c6f259aa4b8d7538d2d0e7542, type: 3}
   frozenTint: {r: 0.4, g: 0.8, b: 1, a: 1}
+  shieldTint: {r: 1, g: 0.85, b: 0, a: 1}
 --- !u!212 &2071161850
 SpriteRenderer:
   serializedVersion: 2
@@ -2725,9 +2802,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
+      propertyPath: speedButton
+      value: 
+      objectReference: {fileID: 1078509981}
+    - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
       propertyPath: freezeButton
       value: 
       objectReference: {fileID: 1905487532}
+    - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
+      propertyPath: shieldButton
+      value: 
+      objectReference: {fileID: 482791214}
     - target: {fileID: 5956428814427539955, guid: f1e16f85ad6d0f44b83b3d7be396330d, type: 3}
       propertyPath: sabotageButton
       value: 

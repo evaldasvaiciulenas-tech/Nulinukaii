@@ -1184,11 +1184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4575558375754265231, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -250
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 4575558375754265231, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 5405909714302378964, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
       propertyPath: m_fontSize
@@ -1661,6 +1661,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AbilityManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: boostEffectPrefab
+      value: 
+      objectReference: {fileID: 8873619402137819747, guid: aa959c96d30e06e4e99c9ece2bc534f4, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: speedEffectPrefab
+      value: 
+      objectReference: {fileID: 3552444881625287318, guid: 13237e8786ede7247b1a848aba5762a2, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: freezeEffectPrefab
+      value: 
+      objectReference: {fileID: 3824192030424274395, guid: 70b9eccce1f527045a925d404d11ec13, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: shieldEffectPrefab
+      value: 
+      objectReference: {fileID: 3057349874001335573, guid: 56fe3218b13f2dc47a728b7ac15af184, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: sabotageEffectPrefab
+      value: 
+      objectReference: {fileID: 3594041234794526718, guid: b9fa8c785440c334287816fc62e0ee3c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
