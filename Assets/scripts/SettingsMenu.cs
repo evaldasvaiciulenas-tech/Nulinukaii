@@ -7,6 +7,7 @@ public class SettingsManager : MonoBehaviour
     public AudioMixer audioMixer;
     public Slider musicSlider;
     public Slider soundEffectsSlider;
+    public GameObject confirmResetPanel;
 
     void Start()
     {
@@ -38,5 +39,24 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", value);
         audioMixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20);
         PlayerPrefs.Save();
+    }
+    public void ResetProgress()
+    {
+        PlayerProgress.Instance.ResetProgress();
+    }
+    public void OnResetProgressClicked()
+    {
+        confirmResetPanel.SetActive(true);
+    }
+
+    public void OnConfirmYes()
+    {
+        PlayerProgress.Instance.ResetProgress();
+        confirmResetPanel.SetActive(false);
+    }
+
+    public void OnConfirmNo()
+    {
+        confirmResetPanel.SetActive(false);
     }
 }

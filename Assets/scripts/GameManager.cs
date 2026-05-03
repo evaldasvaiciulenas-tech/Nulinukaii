@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;   // needed for Text component; swap for TMPro if you use TextMeshPro
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject winPanel; // UI panel (vėliau)
+    public GameObject winPanel;
     public GameObject losePanel;
 
     public AudioClip winSound;
@@ -18,12 +19,32 @@ public class GameManager : MonoBehaviour
     public GameObject speedButton;
     public GameObject shieldButton;
 
+    // ── Timer UI ────────────────────────────────────────────────────
+    // Assign a UI Text (or TMP_Text) in the Inspector to show elapsed time while playing.
+    // Leave empty if you don't want an in-game timer display.
+    [Header("Timer")]
+    public Text timerText;               // swap type to TMP_Text if using TextMeshPro
+    public Text winTimeText;             // optional: shows final time on the win panel
 
+    // ── Internals ───────────────────────────────────────────────────
     private bool gameEnded = false;
+    private float elapsedTime = 0f;
+    private int levelNumber = -1;        // 1-based level number, derived from build index
+
     void Start()
     {
         NodePastatas.playerActiveLines = 0;
         NodePastatas.aiActiveLines = 0;
+
+        // Derive the 1-based level number from the scene's build index.
+        // This assumes your level scenes occupy build indices starting at
+        // PlayerProgress.FIRST_LEVEL_BUILD_INDEX. E.g. if Level 1 is build index 1,
+        // Level 2 is build index 2, etc.
+        // Derive which level this is (1-based) from the scene's build index.
+        // Matches the FIRST_LEVEL_BUILD_INDEX constant in PlayerProgress —
+        // update that one constant if your build order ever changes.
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+        levelNumber = buildIndex - PlayerProgress.FIRST_LEVEL_BUILD_INDEX + 1;
 
         ApplyDifficulty();
 
@@ -31,7 +52,7 @@ public class GameManager : MonoBehaviour
         musicManager = FindObjectOfType<MusicManager>();
 
         if (musicManager != null)
-            musicManager.PlayMusic(); // restart music for this level
+            musicManager.PlayMusic();
     }
 
     void ApplyDifficulty()
@@ -46,23 +67,23 @@ public class GameManager : MonoBehaviour
         switch (DifficultyManager.Instance.currentDifficulty)
         {
             case DifficultyManager.Difficulty.Easy:
-                intervalMultiplier = 1.4f;   // AI generates slower
-                maxLinesBonus = -1;          // one fewer max line
+                intervalMultiplier = 1.4f;
+                maxLinesBonus = -1;
                 freezeCooldown = 8f;
                 freezeDuration = 5f;
                 aggression = 0.3f;
                 actionInterval = 2f;
                 break;
             case DifficultyManager.Difficulty.Hard:
-                intervalMultiplier = 0.65f;   // AI generates faster
-                maxLinesBonus = 1;           // one extra max line
+                intervalMultiplier = 0.65f;
+                maxLinesBonus = 1;
                 freezeCooldown = 15f;
                 freezeDuration = 5f;
                 aggression = 0.8f;
                 actionInterval = 1.5f;
                 break;
             default: // Normal
-                intervalMultiplier = 1f;     // no change — use Inspector values as-is
+                intervalMultiplier = 1f;
                 maxLinesBonus = 0;
                 freezeCooldown = 10f;
                 freezeDuration = 5f;
@@ -78,7 +99,6 @@ public class GameManager : MonoBehaviour
                 node.generateInterval = node.baseGenerateInterval * intervalMultiplier;
                 node.maxActiveLines = Mathf.Max(1, node.baseMaxActiveLines + maxLinesBonus);
             }
-            // Player nodes are untouched entirely
         }
 
         AIBot bot = FindObjectOfType<AIBot>();
@@ -99,38 +119,42 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded) return;
 
+        // Advance timer (Time.deltaTime is 0 when paused via Time.timeScale = 0)
+        elapsedTime += Time.deltaTime;
+
+        // Update the in-game timer display
+        if (timerText != null)
+            timerText.text = PlayerProgress.FormatTime(elapsedTime);
+
         CheckWinCondition();
         CheckLoseCondition();
     }
 
     public void ResetLevel()
     {
-        Time.timeScale = 1f; // svarbu (kad po win veiktu)
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void CheckWinCondition()
     {
         NodePastatas[] nodes = FindObjectsOfType<NodePastatas>();
-
         foreach (NodePastatas node in nodes)
         {
             if (node.owner != NodePastatas.OwnerType.Player)
-                return; // jei bent vienas ne player - dar nelaimėta
+                return;
         }
-
         WinGame();
     }
+
     void CheckLoseCondition()
     {
         NodePastatas[] nodes = FindObjectsOfType<NodePastatas>();
-
         foreach (NodePastatas node in nodes)
         {
             if (node.owner == NodePastatas.OwnerType.Player)
-                return; // dar turi bent vieną → nepralaimėjai
+                return;
         }
-
         LoseGame();
     }
 
@@ -138,7 +162,17 @@ public class GameManager : MonoBehaviour
     {
         gameEnded = true;
 
-        Debug.Log("WIN!");
+        // ── Save progress ──
+        if (PlayerProgress.Instance != null && levelNumber >= 1)
+        {
+            PlayerProgress.Instance.RecordLevelComplete(levelNumber, elapsedTime);
+        }
+
+        // ── Show final time on win panel ──
+        if (winTimeText != null)
+            winTimeText.text = "Time: " + PlayerProgress.FormatTime(elapsedTime);
+
+        Debug.Log("WIN! Time: " + PlayerProgress.FormatTime(elapsedTime));
 
         if (audioSource != null && winSound != null)
             audioSource.PlayOneShot(winSound);
@@ -158,9 +192,12 @@ public class GameManager : MonoBehaviour
         if (speedButton != null) speedButton.SetActive(false);
         if (shieldButton != null) shieldButton.SetActive(false);
     }
+
     void LoseGame()
     {
         gameEnded = true;
+
+        // Note: we do NOT save time on a loss — only wins count.
 
         Debug.Log("LOSE!");
 
@@ -189,5 +226,4 @@ public class GameManager : MonoBehaviour
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
     }
-
 }

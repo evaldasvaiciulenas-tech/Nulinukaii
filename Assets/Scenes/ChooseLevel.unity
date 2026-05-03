@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 127631707}
   - component: {fileID: 127631706}
   - component: {fileID: 127631705}
+  - component: {fileID: 127631708}
   m_Layer: 5
   m_Name: Level6Button
   m_TagString: Untagged
@@ -472,16 +473,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 127631708}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 6
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &127631706
@@ -522,6 +523,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127631703}
   m_CullTransparentMesh: 1
+--- !u!114 &127631708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127631703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 6
+  sceneName: Level 6
+  button: {fileID: 127631705}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &136785668
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +826,7 @@ GameObject:
   - component: {fileID: 268654766}
   - component: {fileID: 268654765}
   - component: {fileID: 268654764}
+  - component: {fileID: 268654767}
   m_Layer: 5
   m_Name: Level5Button
   m_TagString: Untagged
@@ -879,16 +898,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 268654767}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 5
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &268654765
@@ -929,6 +948,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268654762}
   m_CullTransparentMesh: 1
+--- !u!114 &268654767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268654762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 5
+  sceneName: Level 5
+  button: {fileID: 268654764}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &320651959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1175,7 @@ GameObject:
   - component: {fileID: 392285159}
   - component: {fileID: 392285158}
   - component: {fileID: 392285157}
+  - component: {fileID: 392285160}
   m_Layer: 5
   m_Name: Level7Button
   m_TagString: Untagged
@@ -1210,16 +1247,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 392285160}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 7
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &392285158
@@ -1260,6 +1297,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392285155}
   m_CullTransparentMesh: 1
+--- !u!114 &392285160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392285155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 7
+  sceneName: Level 7
+  button: {fileID: 392285157}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &429259099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1588,7 @@ GameObject:
   - component: {fileID: 549997204}
   - component: {fileID: 549997203}
   - component: {fileID: 549997202}
+  - component: {fileID: 549997205}
   m_Layer: 5
   m_Name: Level10Button
   m_TagString: Untagged
@@ -1605,16 +1660,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 549997205}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 10
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &549997203
@@ -1655,6 +1710,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549997200}
   m_CullTransparentMesh: 1
+--- !u!114 &549997205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549997200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 10
+  sceneName: Level 10
+  button: {fileID: 549997202}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &622163102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2415,7 @@ GameObject:
   - component: {fileID: 1145576590}
   - component: {fileID: 1145576589}
   - component: {fileID: 1145576588}
+  - component: {fileID: 1145576591}
   m_Layer: 5
   m_Name: Level8Button
   m_TagString: Untagged
@@ -2414,16 +2487,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1145576591}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 8
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1145576589
@@ -2464,6 +2537,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145576586}
   m_CullTransparentMesh: 1
+--- !u!114 &1145576591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145576586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 8
+  sceneName: Level 8
+  button: {fileID: 1145576588}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &1238784519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,6 +2566,7 @@ GameObject:
   - component: {fileID: 1238784523}
   - component: {fileID: 1238784522}
   - component: {fileID: 1238784521}
+  - component: {fileID: 1238784524}
   m_Layer: 5
   m_Name: Level2Button
   m_TagString: Untagged
@@ -2547,16 +2638,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1238784524}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 2
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1238784522
@@ -2597,6 +2688,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238784519}
   m_CullTransparentMesh: 1
+--- !u!114 &1238784524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238784519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 2
+  sceneName: Level 2
+  button: {fileID: 1238784521}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &1399686766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2717,7 @@ GameObject:
   - component: {fileID: 1399686770}
   - component: {fileID: 1399686769}
   - component: {fileID: 1399686768}
+  - component: {fileID: 1399686771}
   m_Layer: 5
   m_Name: Level4Button
   m_TagString: Untagged
@@ -2680,16 +2789,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1399686771}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 4
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1399686769
@@ -2730,6 +2839,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399686766}
   m_CullTransparentMesh: 1
+--- !u!114 &1399686771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399686766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 4
+  sceneName: Level 4
+  button: {fileID: 1399686768}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &1536292150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,6 +2868,7 @@ GameObject:
   - component: {fileID: 1536292154}
   - component: {fileID: 1536292153}
   - component: {fileID: 1536292152}
+  - component: {fileID: 1536292155}
   m_Layer: 5
   m_Name: Level1Button
   m_TagString: Untagged
@@ -2813,16 +2940,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1536292155}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 1
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1536292153
@@ -2863,6 +2990,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536292150}
   m_CullTransparentMesh: 1
+--- !u!114 &1536292155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536292150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 1
+  sceneName: Level 1
+  button: {fileID: 1536292152}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &1544068437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,6 +3235,7 @@ GameObject:
   - component: {fileID: 1732636678}
   - component: {fileID: 1732636677}
   - component: {fileID: 1732636676}
+  - component: {fileID: 1732636679}
   m_Layer: 5
   m_Name: Level3Button
   m_TagString: Untagged
@@ -3162,16 +3307,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1732636679}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 3
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1732636677
@@ -3212,6 +3357,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732636674}
   m_CullTransparentMesh: 1
+--- !u!114 &1732636679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732636674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 3
+  sceneName: Level 3
+  button: {fileID: 1732636676}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &1831599538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3386,7 @@ GameObject:
   - component: {fileID: 1831599542}
   - component: {fileID: 1831599541}
   - component: {fileID: 1831599540}
+  - component: {fileID: 1831599543}
   m_Layer: 5
   m_Name: Level9Button
   m_TagString: Untagged
@@ -3295,16 +3458,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 429259104}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1831599543}
+        m_TargetAssemblyTypeName: LevelButtonUI, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level 9
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1831599541
@@ -3345,6 +3508,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831599538}
   m_CullTransparentMesh: 1
+--- !u!114 &1831599543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831599538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7c4e81d6ebbc64d83ddc6643d75b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelButtonUI
+  levelNumber: 9
+  sceneName: Level 9
+  button: {fileID: 1831599540}
+  bestTimeText: {fileID: 0}
+  lockIcon: {fileID: 0}
 --- !u!1 &1871984198
 GameObject:
   m_ObjectHideFlags: 0
