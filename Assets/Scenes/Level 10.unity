@@ -685,6 +685,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 371542798875486913, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1427594104839413137, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -989,6 +993,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 8924453497924310710, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8434436088857544493, guid: 89ccb63b9178bb84887d65a969262124, type: 3}
     - target: {fileID: 9068244729168987882, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1007,7 +1015,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 129924492779294974, guid: 93192d732914c8048aa8de89304724d4, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5165016440029527041, guid: 93192d732914c8048aa8de89304724d4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7288096843791090240, guid: 93192d732914c8048aa8de89304724d4, type: 3}
@@ -2177,6 +2186,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AbilityManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: boostEffectPrefab
+      value: 
+      objectReference: {fileID: 8873619402137819747, guid: aa959c96d30e06e4e99c9ece2bc534f4, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: speedEffectPrefab
+      value: 
+      objectReference: {fileID: 3552444881625287318, guid: 13237e8786ede7247b1a848aba5762a2, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: freezeEffectPrefab
+      value: 
+      objectReference: {fileID: 3824192030424274395, guid: 70b9eccce1f527045a925d404d11ec13, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: shieldEffectPrefab
+      value: 
+      objectReference: {fileID: 3057349874001335573, guid: 56fe3218b13f2dc47a728b7ac15af184, type: 3}
+    - target: {fileID: 7992533695919460812, guid: 4138d862bae04d945b7fe1317f13cdec, type: 3}
+      propertyPath: sabotageEffectPrefab
+      value: 
+      objectReference: {fileID: 3594041234794526718, guid: b9fa8c785440c334287816fc62e0ee3c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
