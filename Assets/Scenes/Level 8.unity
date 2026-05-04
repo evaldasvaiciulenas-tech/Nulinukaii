@@ -1145,6 +1145,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a02f9adf2a53e4a87c9e8ef899c7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
+--- !u!114 &973884804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2743719685050239276, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+  m_PrefabInstance: {fileID: 973884802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &973884805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9205248240725841608, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+  m_PrefabInstance: {fileID: 973884802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1054659711 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1532539681058749082, guid: 93192d732914c8048aa8de89304724d4, type: 3}
@@ -2165,6 +2187,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1099446696}
     - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winTimeText
+      value: 
+      objectReference: {fileID: 973884805}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: freezeButton
       value: 
       objectReference: {fileID: 1632154433}
@@ -2172,6 +2198,10 @@ PrefabInstance:
       propertyPath: shieldButton
       value: 
       objectReference: {fileID: 274270312}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winStarsText
+      value: 
+      objectReference: {fileID: 973884804}
     - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: sabotageButton
       value: 

@@ -1329,6 +1329,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
+--- !u!114 &4334100220478983069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6758433527842590188, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
+  m_PrefabInstance: {fileID: 4334100220478983068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &4334100220478983070 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8247752972223879580, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
+  m_PrefabInstance: {fileID: 4334100220478983068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &4637667170462467708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1914115391733461709, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
@@ -1395,9 +1417,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4637667170462467708}
     - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winTimeText
+      value: 
+      objectReference: {fileID: 4334100220478983070}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: freezeButton
       value: 
       objectReference: {fileID: 1443507522}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winStarsText
+      value: 
+      objectReference: {fileID: 4334100220478983069}
     - target: {fileID: 7783256847121413959, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: m_Name
       value: GameManager

@@ -188,6 +188,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015c4920bacbc0f4299930e5fd1119a0, type: 3}
+--- !u!114 &208278838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8247752972223879580, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
+  m_PrefabInstance: {fileID: 4334100220478983068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &216810674 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2069613668526269224, guid: f723428ef97084647a2eae517829f0ad, type: 3}
@@ -829,6 +840,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015c4920bacbc0f4299930e5fd1119a0, type: 3}
+--- !u!114 &1564224979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6758433527842590188, guid: 4893eada9733db44485f59d9b6632f61, type: 3}
+  m_PrefabInstance: {fileID: 4334100220478983068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1711593987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1987,9 +2009,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4637667170462467708}
     - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winTimeText
+      value: 
+      objectReference: {fileID: 208278838}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: freezeButton
       value: 
       objectReference: {fileID: 2027548494}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winStarsText
+      value: 
+      objectReference: {fileID: 1564224979}
     - target: {fileID: 7783256847121413959, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: m_Name
       value: GameManager

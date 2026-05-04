@@ -56,11 +56,11 @@ public class LevelButtonUI : MonoBehaviour
                          : 0f;
 
             if (best > 0f)
-                bestTimeText.text = "Best: " + PlayerProgress.FormatTime(best);
-            else if (unlocked)
-                bestTimeText.text = "Not completed";
-            else
-                bestTimeText.text = "";
+            {
+                int stars = PlayerProgress.GetStarRating(levelNumber, best);
+                string starDisplay = new string('★', stars) + new string('☆', 3 - stars);
+                bestTimeText.text = PlayerProgress.FormatTime(best) + "  " + starDisplay;
+            }
         }
     }
 

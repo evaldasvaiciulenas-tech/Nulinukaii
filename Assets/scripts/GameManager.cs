@@ -1,11 +1,14 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;   // needed for Text component; swap for TMPro if you use TextMeshPro
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject winPanel;
     public GameObject losePanel;
+
 
     public AudioClip winSound;
     public AudioClip loseSound;
@@ -23,8 +26,9 @@ public class GameManager : MonoBehaviour
     // Assign a UI Text (or TMP_Text) in the Inspector to show elapsed time while playing.
     // Leave empty if you don't want an in-game timer display.
     [Header("Timer")]
-    public Text timerText;               // swap type to TMP_Text if using TextMeshPro
-    public Text winTimeText;             // optional: shows final time on the win panel
+    public TMP_Text timerText;
+    public TMP_Text winTimeText;           
+    public TMP_Text winStarsText;
 
     // ── Internals ───────────────────────────────────────────────────
     private bool gameEnded = false;
@@ -171,6 +175,12 @@ public class GameManager : MonoBehaviour
         // ── Show final time on win panel ──
         if (winTimeText != null)
             winTimeText.text = "Time: " + PlayerProgress.FormatTime(elapsedTime);
+
+        if (winStarsText != null)
+        {
+            int stars = PlayerProgress.GetStarRating(levelNumber, elapsedTime);
+            winStarsText.text = new string('★', stars) + new string('☆', 3 - stars);
+        }
 
         Debug.Log("WIN! Time: " + PlayerProgress.FormatTime(elapsedTime));
 

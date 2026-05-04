@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &566717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4303641827073264302, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 8858114640367495083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &146965500 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2069613668526269224, guid: f723428ef97084647a2eae517829f0ad, type: 3}
@@ -177,6 +188,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1578894399516244914, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
   m_PrefabInstance: {fileID: 8858114640367495083}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1384097033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7901633521908254653, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+  m_PrefabInstance: {fileID: 8858114640367495083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1451977824 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8601274514268454685, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
@@ -829,6 +851,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1451977824}
     - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winTimeText
+      value: 
+      objectReference: {fileID: 566717}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: freezeButton
       value: 
       objectReference: {fileID: 3474084312870278237}
@@ -836,6 +862,10 @@ PrefabInstance:
       propertyPath: shieldButton
       value: 
       objectReference: {fileID: 639826018}
+    - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
+      propertyPath: winStarsText
+      value: 
+      objectReference: {fileID: 1384097033}
     - target: {fileID: 5713470175084274235, guid: ffdc7857ea597364f9dbe67f87dcc1df, type: 3}
       propertyPath: sabotageButton
       value: 
@@ -1700,6 +1730,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2958968487464683733, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3141848327653786912, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -1781,8 +1815,20 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3972952339446629166, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1658057246927435364, guid: ea8caabf3449d6f408df417ed82df297, type: 2}
+    - target: {fileID: 3972952339446629166, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278245375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972952339446629166, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 3972952339446629166, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088551774438097493, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_fontSize
@@ -1809,8 +1855,20 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4088551774438097493, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1658057246927435364, guid: ea8caabf3449d6f408df417ed82df297, type: 2}
+    - target: {fileID: 4088551774438097493, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278245375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088551774438097493, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088551774438097493, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4605324298271192870, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2061,8 +2119,20 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7224037834054300085, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1658057246927435364, guid: ea8caabf3449d6f408df417ed82df297, type: 2}
+    - target: {fileID: 7224037834054300085, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278245375
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224037834054300085, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224037834054300085, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7280799214412389517, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_Color.b
