@@ -20,23 +20,23 @@ public class PlayerProgress : MonoBehaviour
     ///   0: MainMenu  1: ChooseDifficulty  2: ChooseLevel  3: Level1 ... 12: Level10
     /// then set this to 3.
     /// </summary>
-    public const int FIRST_LEVEL_BUILD_INDEX = 4;
+    public const int FIRST_LEVEL_BUILD_INDEX = 5;
 
     // Gold/Silver/Bronze time thresholds in seconds for each level (index 1–10).
     // Beating the time at index 0 = 3 stars, index 1 = 2 stars, index 2 = 1 star.
     public static readonly float[,] StarThresholds = new float[11, 3]
     {
     { 0, 0, 0 },       // index 0 unused
-    { 30f, 60f, 90f }, // Level 1:  3★ under 30s, 2★ under 60s, 1★ under 90s
-    { 30f, 60f, 90f }, // Level 2
-    { 30f, 60f, 90f }, // Level 3
-    { 30f, 60f, 90f }, // Level 4
-    { 30f, 60f, 90f }, // Level 5
-    { 30f, 60f, 90f }, // Level 6
-    { 30f, 60f, 90f }, // Level 7
-    { 30f, 60f, 90f }, // Level 8
-    { 30f, 60f, 90f }, // Level 9
-    { 30f, 60f, 90f }, // Level 10
+    { 30f, 45f, 60f }, // Level 1:  
+    { 40f, 50f, 70f }, // Level 2
+    { 50f, 70f, 90f }, // Level 3
+    { 50f, 70f, 90f }, // Level 4
+    { 50f, 70f, 90f }, // Level 5
+    { 65f, 80f, 100f }, // Level 6
+    { 35f, 50f, 65f }, // Level 7
+    { 45f, 60f, 75f }, // Level 8
+    { 45f, 60f, 80f }, // Level 9
+    { 75f, 90f, 110f }, // Level 10
     };
 
     // The highest level number the player may enter (1-based).

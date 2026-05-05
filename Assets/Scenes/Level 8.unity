@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6131024802401529630, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6661599934405283126, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_Color.b
@@ -1052,6 +1052,10 @@ PrefabInstance:
     - target: {fileID: 6909461232060568335, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -330
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288096843791090240, guid: 93192d732914c8048aa8de89304724d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7561596675223793239, guid: 93192d732914c8048aa8de89304724d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

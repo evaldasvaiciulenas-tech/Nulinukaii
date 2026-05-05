@@ -3219,7 +3219,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 32024469424810081, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 171353717487068594, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: cooldownText
@@ -3879,7 +3879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8601274514268454685, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8662493757974274882, guid: a2777e297e1fa114885263c91ca715b4, type: 3}
       propertyPath: m_Sprite

@@ -71,15 +71,15 @@ public class GameManager : MonoBehaviour
         switch (DifficultyManager.Instance.currentDifficulty)
         {
             case DifficultyManager.Difficulty.Easy:
-                intervalMultiplier = 1.4f;
-                maxLinesBonus = -1;
+                intervalMultiplier = 1.2f;
+                maxLinesBonus = 0;
                 freezeCooldown = 8f;
                 freezeDuration = 5f;
-                aggression = 0.3f;
+                aggression = 0.4f;
                 actionInterval = 2f;
                 break;
             case DifficultyManager.Difficulty.Hard:
-                intervalMultiplier = 0.65f;
+                intervalMultiplier = 0.7f;
                 maxLinesBonus = 1;
                 freezeCooldown = 15f;
                 freezeDuration = 5f;
