@@ -1115,9 +1115,17 @@ PrefabInstance:
       value: MusicManager
       objectReference: {fileID: 0}
     - target: {fileID: 5387862016188842832, guid: 8eff9fd2a886e7845b385c6b72c11791, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 4384b678e9bac9f4b8bc50acfaad0834, type: 3}
+    - target: {fileID: 5387862016188842832, guid: 8eff9fd2a886e7845b385c6b72c11791, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5387862016188842832, guid: 8eff9fd2a886e7845b385c6b72c11791, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 2774317010683432444, guid: 5a42100c1f486ff48be94826ce5dbf51, type: 2}
     - target: {fileID: 7342771875090170083, guid: 8eff9fd2a886e7845b385c6b72c11791, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.23073
