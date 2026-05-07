@@ -18,12 +18,11 @@ public class MusicManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         audioSource = GetComponent<AudioSource>();
     }
+
     public void PlayMusic()
     {
-        Debug.Log("PlayMusic - audioSource: " + audioSource + ", isPlaying: " + (audioSource != null ? audioSource.isPlaying.ToString() : "null"));
         if (audioSource != null)
         {
             audioSource.Stop();

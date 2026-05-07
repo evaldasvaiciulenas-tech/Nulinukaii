@@ -18,8 +18,20 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("PlayMenu");
     }
 
+    public void GoToMainMenu()
+    {
+    SceneManager.LoadScene("MainMenu");
+    }
+
     public void OpenSettings()
     {
         SceneManager.LoadScene("Settings");
     }
+
+        public void OpenCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+
 }

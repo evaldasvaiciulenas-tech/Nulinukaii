@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         NodePastatas.playerActiveLines = 0;
         NodePastatas.aiActiveLines = 0;
 
@@ -165,6 +166,7 @@ public class GameManager : MonoBehaviour
     void WinGame()
     {
         gameEnded = true;
+        Handheld.Vibrate();
 
         // ── Save progress ──
         if (PlayerProgress.Instance != null && levelNumber >= 1)
@@ -206,6 +208,7 @@ public class GameManager : MonoBehaviour
     void LoseGame()
     {
         gameEnded = true;
+        Handheld.Vibrate();
 
         // Note: we do NOT save time on a loss — only wins count.
 
