@@ -20,7 +20,7 @@ public class PlayerProgress : MonoBehaviour
     ///   0: MainMenu  1: ChooseDifficulty  2: ChooseLevel  3: Level1 ... 12: Level10
     /// then set this to 3.
     /// </summary>
-    public const int FIRST_LEVEL_BUILD_INDEX = 5;
+    public const int FIRST_LEVEL_BUILD_INDEX = 6;
 
     // Gold/Silver/Bronze time thresholds in seconds for each level (index 1–10).
     // Beating the time at index 0 = 3 stars, index 1 = 2 stars, index 2 = 1 star.
