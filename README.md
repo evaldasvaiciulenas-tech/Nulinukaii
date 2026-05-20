@@ -81,14 +81,10 @@ Specialieji veiksmai suteikia papildomų galimybių.
 
 ## Diegimo instrukcija (PC)
 
-1. Atsisiųskite projektą:
-
-```bash
-git clone https://github.com/evaldasvaiciulenas-tech/Nulinukaii.git
-```
-
+1. Atsisiųskite projektą
 2. Atidarykite projekto katalogą.
-3. Paleiskite failą:
+3. Atidarykite katalogą su pavadinimu "UniWar_Data".
+4. Paleiskite failą:
 
 ```text
 UniWar.exe
@@ -136,29 +132,11 @@ Projektas buvo kuriamas taikant **Scrum** metodiką.
 
 ---
 
-## Saugykla
-
-urlGitHub Repository[https://github.com/evaldasvaiciulenas-tech/Nulinukaii](https://github.com/evaldasvaiciulenas-tech/Nulinukaii)
-
----
-
 ## Rezultatai ir išvados
 
 * Sukurtas veikiantis strateginis žaidimas PC ir Android platformoms.
 * Praktikoje pritaikyta Scrum metodika.
 * Įgyta patirties dirbant komandoje su Unity ir GitHub.
-
----
-
-## Ekrano nuotraukos
-
-Jei turite žaidimo ekrano nuotraukų, galite jas pridėti čia:
-
-```markdown
-![Main Menu](images/main-menu.png)
-![Gameplay](images/gameplay.png)
-![Victory Screen](images/victory.png)
-```
 
 ---
 
