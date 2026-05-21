@@ -1233,6 +1233,7 @@ GameObject:
   - component: {fileID: 521866411}
   - component: {fileID: 521866410}
   - component: {fileID: 521866413}
+  - component: {fileID: 521866414}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1358,6 +1359,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &521866414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521866409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d22af063e440548abf6238cb7bd901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AndroidBackButton
+  action: 0
+  targetScene: MainMenu
 --- !u!1 &566839116
 GameObject:
   m_ObjectHideFlags: 0

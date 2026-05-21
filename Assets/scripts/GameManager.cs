@@ -1,14 +1,12 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;   // needed for Text component; swap for TMPro if you use TextMeshPro
-using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject winPanel;
     public GameObject losePanel;
-
 
     public AudioClip winSound;
     public AudioClip loseSound;
@@ -22,18 +20,18 @@ public class GameManager : MonoBehaviour
     public GameObject speedButton;
     public GameObject shieldButton;
 
-    // ── Timer UI ────────────────────────────────────────────────────
-    // Assign a UI Text (or TMP_Text) in the Inspector to show elapsed time while playing.
-    // Leave empty if you don't want an in-game timer display.
     [Header("Timer")]
     public TMP_Text timerText;
-    public TMP_Text winTimeText;           
+    public TMP_Text winTimeText;
     public TMP_Text winStarsText;
 
-    // ── Internals ───────────────────────────────────────────────────
+    [Header("Countdown")]
+    public TMP_Text countdownText;
+
     private bool gameEnded = false;
+    private bool countdownDone = false;
     private float elapsedTime = 0f;
-    private int levelNumber = -1;        // 1-based level number, derived from build index
+    private int levelNumber = -1;
 
     void Start()
     {
@@ -41,13 +39,6 @@ public class GameManager : MonoBehaviour
         NodePastatas.playerActiveLines = 0;
         NodePastatas.aiActiveLines = 0;
 
-        // Derive the 1-based level number from the scene's build index.
-        // This assumes your level scenes occupy build indices starting at
-        // PlayerProgress.FIRST_LEVEL_BUILD_INDEX. E.g. if Level 1 is build index 1,
-        // Level 2 is build index 2, etc.
-        // Derive which level this is (1-based) from the scene's build index.
-        // Matches the FIRST_LEVEL_BUILD_INDEX constant in PlayerProgress —
-        // update that one constant if your build order ever changes.
         int buildIndex = SceneManager.GetActiveScene().buildIndex;
         levelNumber = buildIndex - PlayerProgress.FIRST_LEVEL_BUILD_INDEX + 1;
 
@@ -58,6 +49,27 @@ public class GameManager : MonoBehaviour
 
         if (musicManager != null)
             musicManager.PlayMusic();
+
+        StartCoroutine(StartCountdown());
+    }
+
+    System.Collections.IEnumerator StartCountdown()
+    {
+        Time.timeScale = 0f;
+        if (countdownText != null) countdownText.gameObject.SetActive(true);
+
+        if (countdownText != null) countdownText.text = "3";
+        yield return new WaitForSecondsRealtime(1f);
+        if (countdownText != null) countdownText.text = "2";
+        yield return new WaitForSecondsRealtime(1f);
+        if (countdownText != null) countdownText.text = "1";
+        yield return new WaitForSecondsRealtime(1f);
+        if (countdownText != null) countdownText.text = "GO!";
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        if (countdownText != null) countdownText.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        countdownDone = true;
     }
 
     void ApplyDifficulty()
@@ -87,7 +99,7 @@ public class GameManager : MonoBehaviour
                 aggression = 0.8f;
                 actionInterval = 1.5f;
                 break;
-            default: // Normal
+            default:
                 intervalMultiplier = 1f;
                 maxLinesBonus = 0;
                 freezeCooldown = 10f;
@@ -122,12 +134,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (gameEnded) return;
+        if (gameEnded || !countdownDone) return;
 
-        // Advance timer (Time.deltaTime is 0 when paused via Time.timeScale = 0)
         elapsedTime += Time.deltaTime;
 
-        // Update the in-game timer display
         if (timerText != null)
             timerText.text = PlayerProgress.FormatTime(elapsedTime);
 
@@ -168,13 +178,12 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
         Handheld.Vibrate();
 
-        // ── Save progress ──
-        if (PlayerProgress.Instance != null && levelNumber >= 1)
-        {
-            PlayerProgress.Instance.RecordLevelComplete(levelNumber, elapsedTime);
-        }
+        if (timerText != null)
+            timerText.gameObject.SetActive(false);
 
-        // ── Show final time on win panel ──
+        if (PlayerProgress.Instance != null && levelNumber >= 1)
+            PlayerProgress.Instance.RecordLevelComplete(levelNumber, elapsedTime);
+
         if (winTimeText != null)
             winTimeText.text = "Time: " + PlayerProgress.FormatTime(elapsedTime);
 
@@ -195,6 +204,8 @@ public class GameManager : MonoBehaviour
         if (winPanel != null)
             winPanel.SetActive(true);
 
+        winPanel.GetComponentInChildren<ConfettiEffect>().enabled = true;
+
         Time.timeScale = 0f;
 
         if (pauseButton != null) pauseButton.SetActive(false);
@@ -210,7 +221,8 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
         Handheld.Vibrate();
 
-        // Note: we do NOT save time on a loss — only wins count.
+        if (timerText != null)
+            timerText.gameObject.SetActive(false);
 
         Debug.Log("LOSE!");
 
@@ -221,7 +233,10 @@ public class GameManager : MonoBehaviour
             musicManager.StopMusic();
 
         if (losePanel != null)
+        {
             losePanel.SetActive(true);
+            losePanel.GetComponentInChildren<LoseConfettiEffect>().enabled = true;
+        }
 
         Time.timeScale = 0f;
 
